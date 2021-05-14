@@ -1,9 +1,10 @@
 .card {
-    margin-top: 25%;
+    margin-top: 20%;
     background-color: $color-white;
     width: 65%; 
     border-style: groove; 
     border-radius: 1rem;
+    padding: 3rem;
 
     &-form{
 
@@ -13,7 +14,7 @@
         &-input{
             font-size: 1rem;
             text-align: left;
-            padding: 1.5rem 2rem;
+            padding: 2rem 2rem;
             border-radius: 2px;
             border: none;
             border-bottom: 3px solid transparent;
@@ -28,7 +29,7 @@
         &-input-2{
             font-size: 1rem;
             text-align: left;
-            padding: 1.5rem 2rem;
+            padding: 2rem 2rem;
             border-radius: 2px;
             border: none;
             border-bottom: 3px solid transparent;
@@ -43,8 +44,9 @@
         &-button {
             border-radius: .5rem;
             width: 90%;
-            margin-top: 1rem;
+            margin-top: 2rem;
             margin-left: 1rem;
+            margin-bottom: 1rem;
             padding-top: .4rem;
             padding-bottom: .4rem;
             background-color: #a6d6d6;

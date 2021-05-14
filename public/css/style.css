@@ -1,21 +1,24 @@
 .heading-primary {
   color: black;
-  font-size: 3rem;
-  text-align: center; }
+  font-size: 3.5rem;
+  text-align: center;
+  font-family: Lobster;
+  font-weight: 400; }
 
 .card {
-  margin-top: 25%;
+  margin-top: 20%;
   background-color: rgba(var(--d87, 255, 255, 255), 1);
   width: 65%;
   border-style: groove;
-  border-radius: 1rem; }
+  border-radius: 1rem;
+  padding: 3rem; }
   .card-form {
     position: relative;
     transition: all .5s; }
     .card-form-input {
       font-size: 1rem;
       text-align: left;
-      padding: 1.5rem 2rem;
+      padding: 2rem 2rem;
       border-radius: 2px;
       border: none;
       border-bottom: 3px solid transparent;
@@ -26,7 +29,7 @@
     .card-form-input-2 {
       font-size: 1rem;
       text-align: left;
-      padding: 1.5rem 2rem;
+      padding: 2rem 2rem;
       border-radius: 2px;
       border: none;
       border-bottom: 3px solid transparent;
@@ -37,8 +40,9 @@
     .card-form-button {
       border-radius: .5rem;
       width: 90%;
-      margin-top: 1rem;
+      margin-top: 2rem;
       margin-left: 1rem;
+      margin-bottom: 1rem;
       padding-top: .4rem;
       padding-bottom: .4rem;
       background-color: #a6d6d6;
@@ -54,11 +58,20 @@
         box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); }
 
 .log-in {
-  width: 65%; }
+  padding-top: 2rem;
+  width: 78%; }
   .log-in-button {
     text-decoration: none;
     font-weight: bold;
     color: #0095f6; }
+
+.forgotpassword {
+  margin-left: 33%;
+  margin-top: 2rem; }
+  .forgotpassword-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #511281; }
 
 .h3-heading-login {
   margin: 2rem 0;
@@ -73,7 +86,8 @@
 
 .h4-heading-login {
   display: inline-block;
-  margin-right: 0.5rem; }
+  margin-right: 0.5rem;
+  margin-left: 35%; }
 
 .body-signup {
   width: 35%;
@@ -121,12 +135,21 @@
   color: #00adb5;
   font-size: 2.5rem;
   font-weight: bold;
-  text-shadow: 0 0.08rem #000; }
+  font-family: 'Slabo 27px', serif;
+  transition: all 0.2s;
+  letter-spacing: 2px; }
+  .heading-secondary-login:hover {
+    transform: skewY(1deg) skewX(10deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.35); }
 
 .heading-tertiary-login {
-  margin-top: 5%;
+  margin-top: 8%;
   text-align: center;
   color: #00adb5;
   font-size: 1.2rem;
   font-weight: bold;
-  text-shadow: 0 0.08rem #000; }
+  font-family: 'Lato', sans-serif;
+  transition: all .2s; }
+  .heading-tertiary-login:hover {
+    transform: translateY(-0.25rem);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.35); }

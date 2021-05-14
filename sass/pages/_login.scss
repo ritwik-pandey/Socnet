@@ -8,14 +8,25 @@
     color: $color-blue;
     font-size: 2.5rem;
     font-weight: bold;
-    text-shadow: 0 0.08rem $color-black;
+    font-family: 'Slabo 27px', serif;
+    transition: all 0.2s;
+    letter-spacing: 2px;
+    &:hover {
+        transform: skewY(1deg) skewX(10deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.35);
+    }
 }
 
 .heading-tertiary-login{
-    margin-top: 5%;
+    margin-top: 8%;
     text-align: center;
     color: $color-blue;
     font-size: 1.2rem;
     font-weight: bold; 
-    text-shadow: 0 0.08rem $color-black;
+    font-family: 'Lato', sans-serif;
+    transition: all .2s;
+    &:hover{
+        transform: translateY(-0.25rem);
+        text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.35);
+    }
 }

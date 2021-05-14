@@ -1,5 +1,6 @@
-.log-in{
-    width: 65%;
+.log-in {
+    padding-top: 2rem;
+    width: 78%;
 
     &-button {
         text-decoration: none;
@@ -8,21 +9,31 @@
     }
 }
 
+.forgotpassword {
+    margin-left: 33%;
+    margin-top: 2rem;
+    &-link {
+        text-decoration: none;
+        font-weight: bold;
+        color: #511281;
+    }
+}
+
 .h3-heading-login {
     margin: 2rem 0;
     text-align: center;
-    width: 100%; 
-    border-bottom: 1px solid $color-grey-2; 
+    width: 100%;
+    border-bottom: 1px solid $color-grey-2;
     line-height: 0.1em;
 }
 
-.h3-heading-login span { 
-    background: $color-grey; 
-    padding:0 10px; 
+.h3-heading-login span {
+    background: $color-grey;
+    padding: 0 10px;
 }
 
 .h4-heading-login {
     display: inline-block;
     margin-right: 0.5rem;
+    margin-left: 35%;
 }
-
