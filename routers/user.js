@@ -4,16 +4,16 @@ const router = new express.Router();
 const bodyParser = require("body-parser");
 const request = require('request');
 var nodemailer = require("nodemailer");
-var xoauth2 = require('xoauth2');
+var {randString , sendMail} = require("../functions/sendEmail");
 
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 
-var email;
+
+// SIGN UP
 
 router.post('/signup', (req, res) => {
-    console.log(req.body);
     if (!req.body.username || !req.body.email || !req.body.password) {
         res.render('signup', { msg: "Please enter all details" });
     } else {
@@ -41,7 +41,7 @@ router.post('/signup', (req, res) => {
                     res.render("signup", { msg: "Error! Please try again" });
                 } else {
                     if (response.statusCode == 200) {
-                        res.render("signup", { msg: "Success" });
+                        res.render("signup", { msg: "Please verfiy your mail. Link was sent" });
                     } else {
                         res.render("signup", { msg: body });
                     }
@@ -52,54 +52,61 @@ router.post('/signup', (req, res) => {
 
 })
 
-const randString = () => {
-    const len = 8;
-    let randStr = '';
-    for(let i = 0 ; i < len ; ++i){
-        const ch = Math.floor((Math.random() * 10) + 1)
-        randStr += ch;
-    }
-    return randStr;
-}
+//LOGIN
 
+router.post('/login' , (req , res) => {
+    let email = req.body.email
+    let password = req.body.password
+    const url = "http://localhost:3000/login";
 
-const sendMail = (email , uniqueString) => {
-    var Transport = nodemailer.createTransport({
-        service: "Gmail",
-        auth: {
-            user: "ritwikdevelopment@gmail.com",
-            pass: process.env.PASSWORD
+    request.post(
+        url,
+        {
+            json: {
+                email: email,
+                password: password
+            },
+        },
+        (error, response, body) => {
+            if (error) {
+                console.log(error)
+                console.log("error");
+            } else {
+                if (response.statusCode == 200) {
+                    console.log("Access granted!");
+                } else {
+                    console.log("Access declined!");
+                }
+            }
         }
-    });
-    var mailOptions;
-    let sender = "ritwikdevelopment@gmail.com";
-    mailOptions = {
-        from: sender,
-        to: email,
-        subject: "Email conformation",
-        html: `Press <a href=http://localhost:4000/verify/${uniqueString}> here </a> to verify your email. Thanks`
-    }
-    Transport.sendMail(mailOptions , function(error , response) {
-        if(error){
-            console.log(error);
-        }else{
-            console.log("Message sent");
-        }
-    });
-}
-
-router.get('/verify/:uniqueString' , async (req,res) => {
-    const { uniqueString } = req.params
-    const user = users.where('UniqueString', '==', uniqueString);
-    if(user) {
-        const res = await user.update({
-            confirmed: true    
-        });
-    }else{
-        console.log("User not found");
-    }
+    )    
 })
 
+//Verify the code
+router.get('/verify/:uniqueString' , async (req,res) => {
+    const { uniqueString } = req.params
+    const url = "http://localhost:3000/verify";
+    request.post(
+        url,
+        {
+            json: {
+                uniqueString: uniqueString
+            },
+        },
+        (error, response, body) => {
+            if (error) {
+                console.log(error)
+                res.render("Fail!");
+            } else {
+                if (response.statusCode == 200) {
+                    res.redirect("/login");
+                } else {
+                    res.redirect("/signup");
+                }
+            }
+        }
+    )
+})
 
 router.get("/signup", (req, res) => {
     res.render("signup", { msg: " " });

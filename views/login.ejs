@@ -12,10 +12,10 @@
             <div class="col-1-of-2">
                 <div class="card">
                     <h1 class="heading-primary">Socnet</h1>
-                    <form action="" class="card-form">
-                        <input class="card-form-input" type="email" placeholder="email">
-                        <input class="card-form-input-2" type="text" placeholder="password">
-                        <button class="card-form-button">Log in</button>
+                    <form action="/login" class="card-form" method="POST">
+                        <input name="email" class="card-form-input" type="email" placeholder="email" autocomplete="off">
+                        <input name="password" class="card-form-input-2" type="text" placeholder="password" autocomplete="off">
+                        <button type="submit" class="card-form-button">Log in</button>
                     </form>
                 </div>
                 <div class="log-in">
