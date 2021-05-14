@@ -1,0 +1,28 @@
+.log-in{
+    width: 65%;
+
+    &-button {
+        text-decoration: none;
+        font-weight: bold;
+        color: #0095f6;
+    }
+}
+
+.h3-heading-login {
+    margin: 2rem 0;
+    text-align: center;
+    width: 100%; 
+    border-bottom: 1px solid $color-grey-2; 
+    line-height: 0.1em;
+}
+
+.h3-heading-login span { 
+    background: $color-grey; 
+    padding:0 10px; 
+}
+
+.h4-heading-login {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+

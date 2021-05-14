@@ -1,0 +1,21 @@
+.body-login{
+    background-color: $color-grey;
+}
+
+.heading-secondary-login {
+    margin-top: 40%;
+    text-align: center;
+    color: $color-blue;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0.08rem $color-black;
+}
+
+.heading-tertiary-login{
+    margin-top: 5%;
+    text-align: center;
+    color: $color-blue;
+    font-size: 1.2rem;
+    font-weight: bold; 
+    text-shadow: 0 0.08rem $color-black;
+}

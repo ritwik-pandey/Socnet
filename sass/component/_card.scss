@@ -1,0 +1,67 @@
+.card {
+    margin-top: 25%;
+    background-color: $color-white;
+    width: 65%; 
+    border-style: groove; 
+    border-radius: 1rem;
+
+    &-form{
+
+        position: relative;
+        transition: all .5s;
+
+        &-input{
+            font-size: 1rem;
+            text-align: left;
+            padding: 1.5rem 2rem;
+            border-radius: 2px;
+            border: none;
+            border-bottom: 3px solid transparent;
+            width: 60%;
+            display: block;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &-input-2{
+            font-size: 1rem;
+            text-align: left;
+            padding: 1.5rem 2rem;
+            border-radius: 2px;
+            border: none;
+            border-bottom: 3px solid transparent;
+            display: block;
+            width: 60%;
+    
+            &:focus {
+                    outline: none;
+            }
+        }
+
+        &-button {
+            border-radius: .5rem;
+            width: 90%;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            padding-top: .4rem;
+            padding-bottom: .4rem;
+            background-color: #a6d6d6;
+            border: 1px solid transparent;
+            color: white;
+            font-weight: 900;
+
+            &:hover{
+                background-color: #77acf1;
+                transform: translateY(-3px);
+                box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+            }
+
+            &:active {
+                transform: translateY(-1px);
+                box-shadow: 0 0.2rem 0.5rem rgba($color-black , .2);
+            }
+        }
+    }
+}
