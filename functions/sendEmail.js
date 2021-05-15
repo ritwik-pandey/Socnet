@@ -12,7 +12,7 @@ const randString = () => {
 }
 
 //Send mail
-const sendMail = (email , uniqueString) => {
+const sendMail = (email , uniqueString , link) => {
     var Transport = nodemailer.createTransport({
         service: "Gmail",
         auth: {
@@ -26,7 +26,7 @@ const sendMail = (email , uniqueString) => {
         from: sender,
         to: email,
         subject: "Email conformation",
-        html: `<h1>Press <a href=http://localhost:4000/verify/${uniqueString}> here </a> to verify your email. Thanks</h1>`
+        html: `<h1>Press <a href=http://localhost:4000/${link}/${uniqueString}> here </a> to verify your email. Thanks</h1>`
     }
     Transport.sendMail(mailOptions , function(error , response) {
         if(error){

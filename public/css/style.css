@@ -106,11 +106,14 @@
 
 .forgotpassword2 {
   width: 40%;
-  margin-top: 15%;
-  margin-left: 25%;
+  margin-top: 12%;
+  margin-left: 30%;
   background-color: rgba(var(--d87, 255, 255, 255), 1);
   border-style: groove;
   border-radius: 1rem; }
+
+.forgotpasswordmsg {
+  text-align: center; }
 
 .row {
   max-width: 114rem;

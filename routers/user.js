@@ -29,7 +29,7 @@ router.post('/signup', (req, res) => {
         
         const url = "http://localhost:3000/users";
         const uniqueString = randString()
-        sendMail(email , uniqueString)
+        sendMail(email , uniqueString , "verify")
         request.post(
             url,
             {
