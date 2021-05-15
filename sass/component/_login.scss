@@ -10,8 +10,9 @@
 }
 
 .forgotpassword {
-    margin-left: 33%;
+    width: 80%;
     margin-top: 2rem;
+    text-align: center;
     &-link {
         text-decoration: none;
         font-weight: bold;
@@ -35,5 +36,5 @@
 .h4-heading-login {
     display: inline-block;
     margin-right: 0.5rem;
-    margin-left: 35%;
+    text-align: center;
 }

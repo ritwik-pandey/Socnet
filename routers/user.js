@@ -4,6 +4,8 @@ const router = new express.Router();
 const bodyParser = require("body-parser");
 const request = require('request');
 var nodemailer = require("nodemailer");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 var {randString , sendMail} = require("../functions/sendEmail");
 
 router.use(bodyParser.urlencoded({
@@ -21,6 +23,10 @@ router.post('/signup', (req, res) => {
         const password = req.body.password;
         email = req.body.email;
 
+        const hash = bcrypt.hashSync(password, saltRounds);
+        const emailhash = bcrypt.hashSync(email, saltRounds);
+
+        
         const url = "http://localhost:3000/users";
         const uniqueString = randString()
         sendMail(email , uniqueString)
@@ -28,9 +34,9 @@ router.post('/signup', (req, res) => {
             url,
             {
                 json: {
-                    email: email,
+                    email: emailhash,
                     username: username,
-                    password: password,
+                    password: hash,
                     confirmed: false,
                     uniqueString: uniqueString
                 },
@@ -55,7 +61,7 @@ router.post('/signup', (req, res) => {
 //LOGIN
 
 router.post('/login' , (req , res) => {
-    let email = req.body.email
+    let username = req.body.username
     let password = req.body.password
     const url = "http://localhost:3000/login";
 
@@ -63,7 +69,7 @@ router.post('/login' , (req , res) => {
         url,
         {
             json: {
-                email: email,
+                username: username,
                 password: password
             },
         },
@@ -109,7 +115,7 @@ router.get('/verify/:uniqueString' , async (req,res) => {
 })
 
 router.get("/signup", (req, res) => {
-    res.render("signup", { msg: " " });
+    res.render("signup", { msg: "Please remember your username.It's only way you can login." });
 })
 
 router.get("/login", (req, res) => {
