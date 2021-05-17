@@ -3,10 +3,11 @@ const express = require('express');
 const router = new express.Router();
 const bodyParser = require("body-parser");
 const request = require('request');
-var nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-var {randString , sendMail} = require("../functions/sendEmail");
+
+
+var { randString, sendMail } = require("../functions/sendEmail");
 
 router.use(bodyParser.urlencoded({
     extended: true
@@ -26,10 +27,10 @@ router.post('/signup', (req, res) => {
         const hash = bcrypt.hashSync(password, saltRounds);
         const emailhash = bcrypt.hashSync(email, saltRounds);
 
-        
+
         const url = "http://localhost:3000/users";
         const uniqueString = randString()
-        sendMail(email , uniqueString , "verify")
+        sendMail(email, uniqueString, "verify")
         request.post(
             url,
             {
@@ -60,7 +61,7 @@ router.post('/signup', (req, res) => {
 
 //LOGIN
 
-router.post('/login' , (req , res) => {
+router.post('/login', (req, res) => {
     let username = req.body.username
     let password = req.body.password
     const url = "http://localhost:3000/login";
@@ -79,17 +80,17 @@ router.post('/login' , (req , res) => {
                 console.log("error");
             } else {
                 if (response.statusCode == 200) {
-                    console.log("Access granted!");
+                    res.redirect("/" + username)
                 } else {
                     console.log("Access declined!");
                 }
             }
         }
-    )    
+    )
 })
 
 //Verify the code
-router.get('/verify/:uniqueString' , async (req,res) => {
+router.get('/verify/:uniqueString', async (req, res) => {
     const { uniqueString } = req.params
     const url = "http://localhost:3000/verify";
     request.post(
