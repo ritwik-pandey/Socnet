@@ -1,10 +1,12 @@
-require('dotenv').config()
+
 const express = require('express');
 const router = new express.Router();
 const bodyParser = require("body-parser");
 const request = require('request');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const cookieParser = require("cookie-parser");
+router.use(cookieParser());
 
 
 var { randString, sendMail } = require("../functions/sendEmail");
@@ -74,15 +76,21 @@ router.post('/login', (req, res) => {
                 password: password
             },
         },
-        (error, response, body) => {
+        (error, response, cookie) => {
             if (error) {
                 console.log(error)
                 console.log("error");
             } else {
                 if (response.statusCode == 200) {
+                    if(!req.cookies.jwt){
+                        res.cookie("jwt", cookie , {
+                            expires: new Date(Date.now() + 6000000),
+                            httpOnly: true
+                        });
+                    }
                     res.redirect("/" + username)
                 } else {
-                    console.log("Access declined!");
+                    res.render("login" , {msglogin: "Wrong details"})
                 }
             }
         }
@@ -120,7 +128,7 @@ router.get("/signup", (req, res) => {
 })
 
 router.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login" , {msglogin: "Please login"});
 })
 
 module.exports = router
