@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+    <body class="profile">
+        <div class="profile-img-div">
+            <img class="profile-img" src="/img/Incognito-1024x558.png" alt="incogito">
+        </div>
+        <div class="profile-username">
+
+            <div class="profile-heading">
+                <h1>
+                    <%= username %>
+                </h1>
+            </div>
+            <input type="hidden" class="username-input" value="<%=username%>">
+            <input type="hidden" class="username-follow" value="<%=isFollowing%>">
+            <button class="card-form-button profile-button">Follow</button>
+
+            <div class="follower-following">
+                <h4 class="profile-follower">
+                    <%= followers %> Followers
+                </h4>
+                <h4 class="profile-following">
+                    <%= following %> Following
+                </h4>
+                <h4 class="profile-posts">
+                    <%= posts %> Posts
+                </h4>
+            </div>
+        </div>
+    </body>
+
+    <footer>
+        <script src="/index.js"></script>
+    </footer>
+
+    <%- include('partials/footer') %>

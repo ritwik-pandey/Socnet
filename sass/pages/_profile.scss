@@ -1,0 +1,63 @@
+.profile{
+    background-color: $color-grey;
+
+    &-heading{
+        display: inline-block;
+    }
+
+    &-username{
+        display: inline-block;
+        width: 30%;
+        margin-top: 6%;
+        margin-left: 45%;        
+    }
+
+    &-button{
+        display: inline-block;
+        width: 30%;
+        margin-left: 6%;
+        margin-top: 0; 
+    }
+
+    &-img-div{
+        position: absolute;
+        width: 40%;
+    }
+
+    &-img{
+        margin-top: 10%;
+        width: 53%;
+        margin-left: 60%; 
+        position: relative;
+    }
+
+    &-follower{
+        position: relative;
+        display: inline-block;
+    }
+
+    &-following{
+        position: relative;
+        display: inline-block;
+        margin-left: 1rem;
+    }
+
+    &-posts{
+        position: relative;
+        display: inline-block;
+        margin-left: 1rem;
+    }
+}
+
+.follower-following{
+    margin-top: -1.5rem;
+    position: absolute;
+}
+
+.clicked{
+    background-color: $color-red;
+    &:hover{
+        background-color: $color-red;
+    }
+}
+

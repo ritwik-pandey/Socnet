@@ -1,0 +1,23 @@
+.error-body{
+    background-color: $color-grey;
+}
+
+.error{
+    text-align: center;
+    margin-top: 5%;
+
+    &-heading {
+        font-family: 'Slabo 27px', serif;
+        letter-spacing: 1.5px;
+    }
+
+    &-heading-seconday{
+        font-family: 'Lato', sans-serif;
+    }
+}
+
+
+.error-link{
+    text-decoration: none;
+    color: $color-purple;
+}
