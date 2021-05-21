@@ -8,15 +8,19 @@ router.use(bodyParser.urlencoded({ extended: true }))
 router.use(bodyParser.json());
 
 
+//Logout
+
 router.get('/logout', (req, res) => {
     try {
         res.clearCookie("jwt");
-        res.send("Success")
+        res.redirect("/login")
     } catch (e) {
         res.send("Fail")
     }
 
 })
+
+//Follow
 
 router.post('/follow', (req, res) => {
     const url = "http://localhost:3000/follow"
@@ -44,6 +48,8 @@ router.post('/follow', (req, res) => {
     )
 })
 
+//Unfollow
+
 router.post('/unfollow', (req, res) => {
     const url = "http://localhost:3000/unfollow"
     request.post(
@@ -69,6 +75,90 @@ router.post('/unfollow', (req, res) => {
         }
     )
 })
+
+//Get followers
+
+router.post('/:username/followers', (req, res) => {
+    if (req.url != '/favicon.ico') {
+        const url = "http://localhost:3000/" + req.params.username + "/followers"
+        request.post(
+            url,
+            {
+                json: {
+                    user: req.params.username,
+                    cookie: req.cookies.jwt
+                },
+            },
+            (error, response, body) => {
+                if (error) {
+                    console.log(error)
+                } else if (response.statusCode == 200) {
+                    res.status(200).send(response.body);
+                } else if (response.statusCode == 404) {
+                    res.render('error');
+                } else {
+                    res.redirect('/login');
+                }
+            }
+        )
+    } else {
+        console.log("Fav");
+    }
+})
+
+router.post('/:username/following', (req, res) => {
+    if (req.url != '/favicon.ico') {
+        const url = "http://localhost:3000/" + req.params.username + "/following"
+        request.post(
+            url,
+            {
+                json: {
+                    user: req.params.username,
+                    cookie: req.cookies.jwt
+                },
+            },
+            (error, response, body) => {
+                if (error) {
+                    console.log(error)
+                } else if (response.statusCode == 200) {
+                    res.status(200).send(response.body);
+                } else if (response.statusCode == 404) {
+                    res.render('error');
+                } else {
+                    res.redirect('/login');
+                }
+            }
+        )
+    } else {
+        console.log("Fav");
+    }
+})
+
+router.get('/me' , (req , res) => {
+    const url = "http://localhost:3000/me"
+        request.post(
+            url,
+            {
+                json: {
+                    cookie: req.cookies.jwt
+                },
+            },
+            (error, response, body) => {
+                if (error) {
+                    console.log(error)
+                } else if (response.statusCode == 200) {
+                    console.log(response.body);
+                    res.redirect('/' + response.body)
+                } else if (response.statusCode == 404) {
+                    res.render('error');
+                } else {
+                    res.redirect('/login');
+                }
+            }
+        )
+})
+
+//Get profile
 
 router.get('/:username', (req, res) => {
     if (req.url != '/favicon.ico') {

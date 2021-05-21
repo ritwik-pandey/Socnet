@@ -3,13 +3,15 @@
 
     &-heading{
         display: inline-block;
+        letter-spacing: 1px;
     }
 
     &-username{
         display: inline-block;
         width: 30%;
         margin-top: 6%;
-        margin-left: 45%;        
+        margin-left: 45%;  
+              
     }
 
     &-button{
@@ -21,25 +23,34 @@
 
     &-img-div{
         position: absolute;
-        width: 40%;
+        width: 20%;
+        margin-top: 4.5%;
+        margin-left: 25rem; 
     }
 
     &-img{
-        margin-top: 10%;
-        width: 53%;
-        margin-left: 60%; 
+        width: 100%;
         position: relative;
     }
 
     &-follower{
         position: relative;
         display: inline-block;
+
+        & a {
+            text-decoration: none;
+            color: $color-black;
+        }
     }
 
     &-following{
         position: relative;
         display: inline-block;
         margin-left: 1rem;
+        & a {
+            text-decoration: none;
+            color: $color-black;
+        }
     }
 
     &-posts{
@@ -60,4 +71,43 @@
         background-color: $color-red;
     }
 }
+
+.clicked-link{
+    margin-top: 8%;
+    margin-left: 45%;
+    width: 10%;
+    color: #126e82;
+    font-family: 'Slabo 27px', serif;
+    &-line{
+        width: 25%;
+        margin-right: 38%;
+        height: 0.5px;
+    }
+}
+
+#followers-list {
+    list-style-type:none;
+    width: 30%;
+    margin-left: 34%;
+    margin-top: 4%;
+}
+
+#following-list {
+    list-style-type:none;
+    width: 30%;
+    margin-left: 34%;
+    margin-top: 4%;
+}
+
+.list-link-item{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    & a{
+        text-decoration: none;
+        color: $color-black
+    }
+}
+
+
 

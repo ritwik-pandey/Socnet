@@ -1,6 +1,15 @@
 <%- include('partials/header') %>
 
     <body class="profile">
+
+        <div class="navbar">
+            <ul class="navbar-list">
+                <li class="navbar-list-item"><a class="a-navbar" href="/me">My profile</a></li>
+                <li class="navbar-list-item"><a class="a-navbar" href="/">Home</a></li>
+                <li class="navbar-list-item"><a href="/logout" class="a-navbar">Logout</a></li>
+              </ul>
+        </div>
+
         <div class="profile-img-div">
             <img class="profile-img" src="/img/Incognito-1024x558.png" alt="incogito">
         </div>
@@ -20,13 +29,22 @@
                     <%= followers %> Followers
                 </h4>
                 <h4 class="profile-following">
-                    <%= following %> Following
+                   <%= following %> Following
                 </h4>
                 <h4 class="profile-posts">
                     <%= posts %> Posts
                 </h4>
             </div>
         </div>
+        <h1 class="clicked-link">Posts</h1>
+        <hr class="clicked-link-line">
+        <ul id="followers-list">
+
+        </ul>
+
+        <ul id="following-list">
+
+        </ul>
     </body>
 
     <footer>

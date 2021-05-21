@@ -115,6 +115,30 @@
 .forgotpasswordmsg {
   text-align: center; }
 
+.navbar {
+  position: absolute; }
+
+.navbar-list {
+  list-style-type: none;
+  margin-top: 65%;
+  margin-left: 40%;
+  width: 200px;
+  position: relative; }
+  .navbar-list-item {
+    margin-top: 2rem;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.4em;
+    background-position: 0 100%;
+    transition: background-size 0.25s ease-in; }
+    .navbar-list-item:hover {
+      background-size: 100% 100%; }
+
+.a-navbar {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem; }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -193,7 +217,8 @@
 .profile {
   background-color: rgba(var(--b3f, 250, 250, 250), 1); }
   .profile-heading {
-    display: inline-block; }
+    display: inline-block;
+    letter-spacing: 1px; }
   .profile-username {
     display: inline-block;
     width: 30%;
@@ -206,19 +231,25 @@
     margin-top: 0; }
   .profile-img-div {
     position: absolute;
-    width: 40%; }
+    width: 20%;
+    margin-top: 4.5%;
+    margin-left: 25rem; }
   .profile-img {
-    margin-top: 10%;
-    width: 53%;
-    margin-left: 60%;
+    width: 100%;
     position: relative; }
   .profile-follower {
     position: relative;
     display: inline-block; }
+    .profile-follower a {
+      text-decoration: none;
+      color: #000; }
   .profile-following {
     position: relative;
     display: inline-block;
     margin-left: 1rem; }
+    .profile-following a {
+      text-decoration: none;
+      color: #000; }
   .profile-posts {
     position: relative;
     display: inline-block;
@@ -232,3 +263,34 @@
   background-color: #f55c47; }
   .clicked:hover {
     background-color: #f55c47; }
+
+.clicked-link {
+  margin-top: 8%;
+  margin-left: 45%;
+  width: 10%;
+  color: #126e82;
+  font-family: 'Slabo 27px', serif; }
+  .clicked-link-line {
+    width: 25%;
+    margin-right: 38%;
+    height: 0.5px; }
+
+#followers-list {
+  list-style-type: none;
+  width: 30%;
+  margin-left: 34%;
+  margin-top: 4%; }
+
+#following-list {
+  list-style-type: none;
+  width: 30%;
+  margin-left: 34%;
+  margin-top: 4%; }
+
+.list-link-item {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-family: 'Lato', sans-serif; }
+  .list-link-item a {
+    text-decoration: none;
+    color: #000; }

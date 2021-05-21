@@ -1,0 +1,30 @@
+.navbar{
+    position: absolute;
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin-top: 65%;
+    margin-left: 40%;
+    width: 200px;
+    position: relative;
+    &-item {
+        margin-top: 2rem; 
+        background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);;
+        background-repeat: no-repeat;
+        background-size: 100% 0.4em;
+        background-position: 0 100%;
+        transition: background-size 0.25s ease-in;
+        &:hover {
+          background-size: 100% 100%;
+        }
+
+    }
+}
+
+.a-navbar{
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+}
+  
