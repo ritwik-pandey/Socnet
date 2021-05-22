@@ -99,6 +99,13 @@
     margin-top: 4%;
 }
 
+#posts-list{
+    list-style-type:none;
+    width: 30%;
+    margin-left: 34%;
+    margin-top: 4%;
+}
+
 .list-link-item{
     margin-top: 2rem;
     font-size: 1.5rem;
@@ -107,6 +114,13 @@
         text-decoration: none;
         color: $color-black
     }
+}
+
+.like-button{
+    background-color: $color-blue;
+    border: none;
+    margin-top: 1rem;
+    font-size: .8rem;
 }
 
 

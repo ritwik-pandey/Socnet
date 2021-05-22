@@ -41,8 +41,10 @@ router.post('/follow', (req, res) => {
                 res.render('error');
             } else if (response.statusCode == 400) {
                 res.send("Fail");
-            } else {
-                res.redirect('/login');
+            }else if(response.statusCode == 401){
+                    res.redirect('/login')
+            }else{
+                res.render('error');
             }
         }
     )
@@ -69,8 +71,10 @@ router.post('/unfollow', (req, res) => {
                 res.render('error');
             } else if (response.statusCode == 400) {
                 res.send("Fail");
-            } else {
-                res.redirect('/login');
+            } else if(response.statusCode == 401){
+                res.redirect('/login')
+            }else {
+                res.render('error');
             }
         }
     )
@@ -96,8 +100,10 @@ router.post('/:username/followers', (req, res) => {
                     res.status(200).send(response.body);
                 } else if (response.statusCode == 404) {
                     res.render('error');
-                } else {
-                    res.redirect('/login');
+                } else if(response.statusCode == 401){
+                    res.redirect('/login')
+                }else {
+                    res.render('error');
                 }
             }
         )
@@ -124,8 +130,10 @@ router.post('/:username/following', (req, res) => {
                     res.status(200).send(response.body);
                 } else if (response.statusCode == 404) {
                     res.render('error');
-                } else {
-                    res.redirect('/login');
+                } else if(response.statusCode == 401){
+                    res.redirect('/login')
+                }else {
+                    res.render('error');
                 }
             }
         )
@@ -151,8 +159,10 @@ router.get('/me' , (req , res) => {
                     res.redirect('/' + response.body)
                 } else if (response.statusCode == 404) {
                     res.render('error');
-                } else {
-                    res.redirect('/login');
+                } else if(response.statusCode == 401){
+                    res.redirect('/login')
+                }else {
+                    res.render('error');
                 }
             }
         )
@@ -179,14 +189,16 @@ router.get('/:username', (req, res) => {
                         username: response.body.user.username,
                         followers: response.body.user.followers.length,
                         following: response.body.user.following.length,
-                        posts: response.body.user.posts.length,
+                        posts: response.body.posts.posts.length,
                         isFollowing: response.body.isFollowing
                     });
 
                 } else if (response.statusCode == 404) {
                     res.render('error');
-                } else {
-                    res.redirect('/login');
+                } else if(response.statusCode == 401){
+                    res.redirect('/login')
+                }else {
+                    res.render('error');
                 }
             }
         )

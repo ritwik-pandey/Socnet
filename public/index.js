@@ -4,6 +4,8 @@
 //  
 
 
+// ----------------------------------Posts,Follower and Following-------------------------------------
+
 function isFollowing() {
     if ($('.username-follow').val() === 'true') {
         $(".profile-button").text('unfollow')
@@ -11,42 +13,61 @@ function isFollowing() {
     }
 }
 
-$('.profile-button').click(() => {
+function posts() {
+    $("#following-list").empty()
+    $("#following-list").hide()
+    $('#followers-list').empty()
+    $("#followers-list").hide()
+    $('#posts-list').empty()
+    $("#posts-list").show()
+
     const username = $('.username-input').attr('value');
     var xhttp = new XMLHttpRequest();
+    $(".clicked-link").html('Posts');
 
-    if ($('.username-follow').val() === 'true') {
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            let posts = this.responseText;
+
+            let obj = JSON.parse(posts);
+
+            for (let i = 0; i < obj.length; ++i) {
+                $("#posts-list").append('<li class="list-link-item">' + obj[i].text + '</li> <h4 class="like-post">Likes - ' + obj[i].likes + '</h4> <button id=' + obj[i].text + ' class="like-button"> Like </button>');
+            }
+        };
+    };
+
+    xhttp.open("POST", "/" + username + "/posts", true);
+
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+}
 
 
-        xhttp.open("POST", "unfollow", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("clickedid=" + username);
-
-        // $(".profile-button").text('follow')
-        // $('.profile-button').removeClass('clicked');
-
-        window.location.href = '/' + username
-
-    } else {
-        // $(".profile-button").text('unfollow')
-        // $('.profile-button').addClass('clicked');
-
-        xhttp.open("POST", "follow", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("clickedid=" + username);
-
-        window.location.href = '/' + username
-    }
+$('.profile-posts').click(function () {
+    posts();
 })
+
+
 
 $(".profile-follower").click(function () {
     $("#following-list").empty()
     $("#following-list").hide()
+    $("#posts-list").empty()
+    $("#posts-list").hide()
+    $('#followers-list').empty()
     $("#followers-list").show()
+
+
     const username = $('.username-input').attr('value');
+
     $(".clicked-link").html('Followers')
+
     var xhttp = new XMLHttpRequest();
+
     xhttp.onreadystatechange = function () {
+
         if (this.readyState == 4 && this.status == 200) {
             let followers = this.responseText;
             followers = followers.substring(1, followers.length - 1);
@@ -68,12 +89,19 @@ $(".profile-follower").click(function () {
 $(".profile-following").click(function () {
     $('#followers-list').empty()
     $("#followers-list").hide()
+    $("#posts-list").empty()
+    $("#posts-list").hide()
+    $("#following-list").empty()
     $("#following-list").show()
+
+
     const username = $('.username-input').attr('value');
     $(".clicked-link").html('Following');
 
     var xhttp = new XMLHttpRequest();
+
     xhttp.onreadystatechange = function () {
+
         if (this.readyState == 4 && this.status == 200) {
             let following = this.responseText;
             following = following.substring(1, following.length - 1);
@@ -92,6 +120,44 @@ $(".profile-following").click(function () {
     xhttp.send("user" + username);
 })
 
+//------------------------------------------Follow Button--------------------------------
+
+$('.profile-button').click(() => {
+    const username = $('.username-input').attr('value');
+    var xhttp = new XMLHttpRequest();
+
+    if ($('.username-follow').val() === 'true') {
+
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.href = '/' + username
+            }
+        };
+
+        xhttp.open("POST", "unfollow", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("clickedid=" + username);
+
+    } else {
+
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                window.location.href = '/' + username
+            }
+        };
+
+        xhttp.open("POST", "follow", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("clickedid=" + username);
+
+    }
+
+})
+
+//------------------------------------------DESIGN---------------------------------------
+
 // VARIABLES
 const magicalUnderlines = Array.from(document.querySelectorAll('.underline--magical'));
 
@@ -105,20 +171,20 @@ const randNumInRange = max => Math.floor(Math.random() * (max - 1));
 // 2. Merge two separate array values at the same index to 
 // be the same value in new array.
 const mergeArrays = (arrOne, arrTwo) => arrOne
-  .map((item, i) => `${item} ${arrTwo[i]}`)
-  .join(', ');
+    .map((item, i) => `${item} ${arrTwo[i]}`)
+    .join(', ');
 
 // 3. Curried function to add a background to array of elms
 const addBackground = (elms) => (color) => {
-  elms.forEach(el => {
-    el.style.backgroundImage = color;
-  });
+    elms.forEach(el => {
+        el.style.backgroundImage = color;
+    });
 }
 // 4. Function to get data from API
-const getData = async(url) => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data.data;
+const getData = async (url) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.data;
 }
 
 // 5. Partial Application of addBackground to always apply 
@@ -132,10 +198,10 @@ const buildGradient = (obj) => `linear-gradient(${obj.direction}, ${mergeArrays(
 
 // 2. Get single gradient from data pulled in array and
 // apply single gradient to a callback function
-const applyGradient = async(url, callback) => {
-  const data = await getData(url);
-  const gradient = buildGradient(data[randNumInRange(data.length)]);
-  callback(gradient);
+const applyGradient = async (url, callback) => {
+    const data = await getData(url);
+    const gradient = buildGradient(data[randNumInRange(data.length)]);
+    callback(gradient);
 }
 
 // RESULT
@@ -143,3 +209,4 @@ applyGradient(gradientAPI, addBackgroundToUnderlines);
 
 
 isFollowing();
+posts();

@@ -287,6 +287,12 @@
   margin-left: 34%;
   margin-top: 4%; }
 
+#posts-list {
+  list-style-type: none;
+  width: 30%;
+  margin-left: 34%;
+  margin-top: 4%; }
+
 .list-link-item {
   margin-top: 2rem;
   font-size: 1.5rem;
@@ -294,3 +300,27 @@
   .list-link-item a {
     text-decoration: none;
     color: #000; }
+
+.like-button {
+  background-color: #00adb5;
+  border: none;
+  margin-top: 1rem;
+  font-size: .8rem; }
+
+.compose-body {
+  background-color: rgba(var(--b3f, 250, 250, 250), 1); }
+
+.compose-button {
+  margin-top: 5%;
+  width: 20%;
+  margin-left: 38.5%; }
+
+.compose-heading {
+  margin-top: 3%;
+  text-align: center;
+  font-size: 2rem; }
+
+.form-control {
+  display: block;
+  margin-top: 8%;
+  margin-left: 32.5%; }

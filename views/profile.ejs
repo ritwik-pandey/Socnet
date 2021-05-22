@@ -4,10 +4,11 @@
 
         <div class="navbar">
             <ul class="navbar-list">
-                <li class="navbar-list-item"><a class="a-navbar" href="/me">My profile</a></li>
-                <li class="navbar-list-item"><a class="a-navbar" href="/">Home</a></li>
+                <li class="navbar-list-item"><a href="/me" class="a-navbar">My profile</a></li>
+                <li class="navbar-list-item"><a href="/" class="a-navbar">Home</a></li>
+                <li class="navbar-list-item"><a href="/compose" class="a-navbar">Compose</a></li>
                 <li class="navbar-list-item"><a href="/logout" class="a-navbar">Logout</a></li>
-              </ul>
+            </ul>
         </div>
 
         <div class="profile-img-div">
@@ -29,7 +30,7 @@
                     <%= followers %> Followers
                 </h4>
                 <h4 class="profile-following">
-                   <%= following %> Following
+                    <%= following %> Following
                 </h4>
                 <h4 class="profile-posts">
                     <%= posts %> Posts
@@ -38,6 +39,11 @@
         </div>
         <h1 class="clicked-link">Posts</h1>
         <hr class="clicked-link-line">
+
+        <ul id="posts-list">
+
+        </ul>
+
         <ul id="followers-list">
 
         </ul>
@@ -51,4 +57,4 @@
         <script src="/index.js"></script>
     </footer>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>
