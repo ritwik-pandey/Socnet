@@ -6,6 +6,7 @@
 
 // ----------------------------------Posts,Follower and Following-------------------------------------
 
+
 function isFollowing() {
     if ($('.username-follow').val() === 'true') {
         $(".profile-button").text('unfollow')
@@ -31,12 +32,12 @@ function posts() {
             let posts = this.responseText;
 
             let obj = JSON.parse(posts);
-
-            for (let i = 0; i < obj.length; ++i) {
-                $("#posts-list").append('<li class="list-link-item">' + obj[i].text + '</li> <h4 class="like-post">Likes - ' + obj[i].likes + '</h4> <button id=' + obj[i].text + ' class="like-button"> Like </button>');
+            for (i in obj) {
+                $("#posts-list").append('<li class="list-link-item">' + obj[i].text + '</li> <h4 class="like-post">Likes - ' + obj[i].likes + '</h4> <button class="like-button" onclick="likeButton(this.id)" id=' + i + '> <i class="icon-thumsup far fa-thumbs-up fa-2x"></i> </button>');
             }
-        };
-    };
+            
+        }
+    }
 
     xhttp.open("POST", "/" + username + "/posts", true);
 
@@ -49,7 +50,29 @@ $('.profile-posts').click(function () {
     posts();
 })
 
+function likeButton(id) {
 
+    var xyz = this
+    console.log(id);
+    
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            posts();
+        }
+    };
+    xhttp.open("POST", "/like", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    const user = $('.username-input').attr('value')
+
+    // alert(this.id);
+
+    xhttp.send(
+        "id=" + id + "&username=" + user  
+    );
+}
 
 $(".profile-follower").click(function () {
     $("#following-list").empty()
@@ -83,7 +106,7 @@ $(".profile-follower").click(function () {
     };
     xhttp.open("POST", "/" + username + "/followers", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("user" + username);
+    xhttp.send();
 });
 
 $(".profile-following").click(function () {
@@ -117,7 +140,7 @@ $(".profile-following").click(function () {
     };
     xhttp.open("POST", "/" + username + "/following", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("user" + username);
+    xhttp.send();
 })
 
 //------------------------------------------Follow Button--------------------------------

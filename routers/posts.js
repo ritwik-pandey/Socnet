@@ -92,4 +92,31 @@ router.post('/compose' , (req , res) => {
     )
 })
 
+router.post('/like' , (req , res) => {
+    const url = "http://localhost:3000/like"
+    request.post(
+        url,
+        {
+            json: {
+                user: req.body.username,
+                id: req.body.id,
+                cookie: req.cookies.jwt
+            },
+        },
+        (error, response, body) => {
+            if (error) {
+                console.log(error)
+            } else if (response.statusCode == 200) {
+                res.status(200).send()
+            } else if (response.statusCode == 400) {
+                res.send('Error');
+            }else if(response.statusCode == 401){
+                res.redirect('/login')
+            } else {
+                res.render('error');
+            }
+        }
+    )
+})
+
 module.exports = router
