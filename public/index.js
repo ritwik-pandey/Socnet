@@ -1,11 +1,6 @@
-// document.getElementById("myCheck").click()
-//     var element = document.getElementById("<%=username%>");
-//     element.classList.add("clicked");
-//  
-
-
 // ----------------------------------Posts,Follower and Following-------------------------------------
 
+//Change the follow button
 
 function isFollowing() {
     if ($('.username-follow').val() === 'true') {
@@ -14,6 +9,7 @@ function isFollowing() {
     }
 }
 
+//----------------------------------------Get post for the user-------------------------------------
 function posts() {
     $("#following-list").empty()
     $("#following-list").hide()
@@ -32,10 +28,25 @@ function posts() {
             let posts = this.responseText;
 
             let obj = JSON.parse(posts);
+            let class1 = "";
             for (i in obj) {
-                $("#posts-list").append('<li class="list-link-item">' + obj[i].text + '</li> <h4 class="like-post">Likes - ' + obj[i].likes + '</h4> <button class="like-button" onclick="likeButton(this.id)" id=' + i + '> <i class="icon-thumsup far fa-thumbs-up fa-2x"></i> </button>');
+                if (obj[i].isLiked === false) {
+                    class1 = "far fa-thumbs-up";
+                } else {
+                    class1 = "fas fa-thumbs-up";
+                }
+
+                //Insert the post
+
+                $("#posts-list").append(
+                    '<li class="list-link-item">' + obj[i].text + '</li> <h4 class="like-post">Likes - ' + obj[i].likes +'</h4><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4>' +
+                    '<button class="like-button" onclick="likeButton(this.id)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
+                    '</button>' + 
+                    '<input autocomplete="off" name="comment" class="comment-input ' + i + '" type="text" placeholder="Add a comment..">  <button id=' + i + ' class="card-form-button comment-button" onclick="comment(this.id)" >Comment</button>'
+                    
+                );
             }
-            
+
         }
     }
 
@@ -45,16 +56,39 @@ function posts() {
     xhttp.send();
 }
 
-
 $('.profile-posts').click(function () {
     posts();
 })
 
+//----------------------------------When you hit comment-------------------------------------
+
+function comment(id){
+    const user = $('.username-input').attr('value')
+    const search = '.' + id
+    
+    const comment = $(search).val();
+
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            posts();
+        }
+    };
+
+    xhttp.open("POST", "/comment", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send(
+        "id=" + id + "&username=" + user + "&comment=" + comment
+    );
+}
+
+//------------------------------------When you hit like--------------------------------------
+
 function likeButton(id) {
 
-    var xyz = this
-    console.log(id);
-    
+
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -70,9 +104,11 @@ function likeButton(id) {
     // alert(this.id);
 
     xhttp.send(
-        "id=" + id + "&username=" + user  
+        "id=" + id + "&username=" + user
     );
 }
+
+//----------------------------------------Show the follower of user---------------------------------
 
 $(".profile-follower").click(function () {
     $("#following-list").empty()
@@ -108,6 +144,8 @@ $(".profile-follower").click(function () {
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send();
 });
+
+//----------------------------------------Show the following of user----------------------------
 
 $(".profile-following").click(function () {
     $('#followers-list').empty()

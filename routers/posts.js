@@ -79,7 +79,6 @@ router.post('/compose' , (req , res) => {
             if (error) {
                 console.log(error)
             } else if (response.statusCode == 200) {
-                console.log(response.body);
                 res.redirect("/" + response.body)
             } else if (response.statusCode == 400) {
                 res.send('Error');

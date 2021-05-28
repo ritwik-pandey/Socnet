@@ -5,6 +5,7 @@ const userRouter = require('./routers/user')
 const passwordRouter = require('./routers/forgotpassword')
 const profileRouter = require('./routers/profile')
 const postsRouter = require('./routers/posts')
+const commentRouter = require('./routers/commentPost')
 const ejs = require("ejs");
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.static("public"));
 app.use(userRouter)
 app.use(passwordRouter)
 app.use(postsRouter)
+app.use(commentRouter)
 app.use(profileRouter)
 app.set('view engine', 'ejs');
 

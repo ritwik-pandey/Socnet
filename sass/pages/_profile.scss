@@ -128,7 +128,32 @@
     border: none;
     margin-top: 1rem;
     font-size: .8rem;
+    display: block;
 }
 
+.like-post{
+    margin-top: 1.5rem;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.comment{
+    &-post{
+        display: inline-block;
+        margin-left: 1.5rem;
+    }
+    &-input{
+        background-color: $color-grey;
+        margin-top: 1.5rem;
+        border-style: none;
+        &:focus{
+            outline: none;
+        }
+    }
+    &-button{
+        display: inline-block;
+        width: 20%;
+    }
+}
 
 
