@@ -2,55 +2,15 @@
 
     <body class="profile">
 
-        <div class="navbar">
-            <ul class="navbar-list">
-                <li class="navbar-list-item"><a href="/me" class="a-navbar">My profile</a></li>
-                <li class="navbar-list-item"><a href="/" class="a-navbar">Home</a></li>
-                <li class="navbar-list-item"><a href="/compose" class="a-navbar">Compose</a></li>
-                <li class="navbar-list-item"><a href="/logout" class="a-navbar">Logout</a></li>
-            </ul>
-        </div>
+        
+        <%- include('partials/navbar') %>
 
-        <div class="profile-img-div">
-            <img class="profile-img" src="/img/Incognito-1024x558.png" alt="incogito">
-        </div>
-        <div class="profile-username">
+        <%- include('partials/displayProfile') %>
 
-            <div class="profile-heading">
-                <h1>
-                    <%= username %>
-                </h1>
-            </div>
-            <input type="hidden" class="username-input" value="<%=username%>">
-            <input type="hidden" class="username-follow" value="<%=isFollowing%>">
-            <button class="card-form-button profile-button">Follow</button>
+        <%- include('partials/posts') %>
 
-            <div class="follower-following">
-                <h4 class="profile-posts">
-                    <%= posts %> Posts
-                </h4>
-                <h4 class="profile-follower">
-                    <%= followers %> Followers
-                </h4>
-                <h4 class="profile-following">
-                    <%= following %> Following
-                </h4>
-            </div>
-        </div>
-        <h1 class="clicked-link">Posts</h1>
-        <hr class="clicked-link-line">
+        <%- include('partials/displayComments') %>
 
-        <ul id="posts-list">
-
-        </ul>
-
-        <ul id="followers-list">
-
-        </ul>
-
-        <ul id="following-list">
-
-        </ul>
     </body>
 
     <footer>

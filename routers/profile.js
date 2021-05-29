@@ -23,7 +23,6 @@ router.get('/logout', (req, res) => {
 //Follow
 
 router.post('/follow', (req, res) => {
-    console.log(req.body);
     const url = "http://localhost:3000/follow"
     request.post(
         url,
@@ -114,7 +113,6 @@ router.post('/:username/followers', (req, res) => {
 })
 
 router.post('/:username/following', (req, res) => {
-    console.log(req);
     if (req.url != '/favicon.ico') {
         const url = "http://localhost:3000/" + req.params.username + "/following"
         request.post(

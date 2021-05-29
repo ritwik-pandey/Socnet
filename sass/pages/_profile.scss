@@ -135,12 +135,14 @@
     margin-top: 1.5rem;
     display: inline-block;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .comment{
     &-post{
         display: inline-block;
         margin-left: 1.5rem;
+        cursor: pointer;
     }
     &-input{
         background-color: $color-grey;
@@ -154,6 +156,15 @@
         display: inline-block;
         width: 20%;
     }
+}
+
+.see-Likes{ 
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit; 
 }
 
 
