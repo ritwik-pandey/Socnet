@@ -17,7 +17,7 @@
     width: 80%;
     max-width: 650px;
     padding: 30px;
-    min-height: 80vh;
+    min-height: 70vh;
     background-color: $color-grey;
  }
  .overlay {
@@ -52,16 +52,16 @@
 ///Tab 
 
 .tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-    &links{
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  &links{
         width: 50%;
-    }
   }
   
+  
   /* Style the buttons inside the tab */
-  .tab button {
+  & button {
     background-color: inherit;
     float: left;
     border: none;
@@ -73,20 +73,67 @@
   }
   
   /* Change background color of buttons on hover */
-  .tab button:hover {
+  & button:hover {
     background-color: #ddd;
   }
   
   /* Create an active/current tablink class */
-  .tab button.active {
+  & button.active {
     background-color: #ccc;
   }
   
   /* Style the tab content */
-  .tabcontent {
-    // display: none;
+  &-content {
+    display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
     border-top: none;
   }
+}
+
+.post-list-likesandcomments{
+  list-style-type:none;
+  width: 100%;
+}
+
+.list-item-likesandcomments{
+  margin-top: -3rem;
+  font-family: 'Lato', sans-serif;
+    & a{
+        text-decoration: none;
+        color: $color-black
+    }
+}
+
+.seelikes-list{
+  font-size: 1.5rem;
+  padding-bottom: 4rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.seecomments-list{
+  font-size: 1.25rem;
+  
+  margin-left: 2rem;
+  padding-bottom: 2rem;
+  &-name{
+    font-weight:600;
+    display: inline-block;
+  }
+  &-comment{
+    font-family: 'slabo';
+    margin-left: 1rem;
+    font-weight:500;
+    display: inline-block;
+  }
+  &-hypen{
+    margin-left: 1rem;
+    display: inline-block;
+  }
+}
+
+
+
+
+
  

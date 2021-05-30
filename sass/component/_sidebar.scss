@@ -1,0 +1,26 @@
+.sidebar-body {
+    position: relative;
+}
+
+.sidebar {
+    position: absolute;
+    right: 5rem;
+    top: 5rem;
+
+    &-input {
+        background-color: $color-grey;
+        border-style: none;
+        &:focus{
+            outline: none;
+        }
+    }
+    &-button {
+        background: none;
+	    color: inherit;
+	    border: none;
+	    padding: 0;
+	    font: inherit;
+	    cursor: pointer;
+	    outline: inherit;
+    }
+}

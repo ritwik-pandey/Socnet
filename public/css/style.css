@@ -154,7 +154,7 @@
   width: 80%;
   max-width: 650px;
   padding: 30px;
-  min-height: 80vh;
+  min-height: 70vh;
   background-color: rgba(var(--b3f, 250, 250, 250), 1); }
 
 .overlay {
@@ -182,34 +182,94 @@
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1; }
+  background-color: #f1f1f1;
+  /* Style the buttons inside the tab */
+  /* Change background color of buttons on hover */
+  /* Create an active/current tablink class */
+  /* Style the tab content */ }
   .tablinks {
     width: 50%; }
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px; }
+  .tab button:hover {
+    background-color: #ddd; }
+  .tab button.active {
+    background-color: #ccc; }
+  .tab-content {
+    display: none;
+    padding: 6px 12px;
+    border-top: none; }
 
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
+.post-list-likesandcomments {
+  list-style-type: none;
+  width: 100%; }
+
+.list-item-likesandcomments {
+  margin-top: -3rem;
+  font-family: 'Lato', sans-serif; }
+  .list-item-likesandcomments a {
+    text-decoration: none;
+    color: #000; }
+
+.seelikes-list {
+  font-size: 1.5rem;
+  padding-bottom: 4rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem; }
+
+.seecomments-list {
+  font-size: 1.25rem;
+  margin-left: 2rem;
+  padding-bottom: 2rem; }
+  .seecomments-list-name {
+    font-weight: 600;
+    display: inline-block; }
+  .seecomments-list-comment {
+    font-family: 'slabo';
+    margin-left: 1rem;
+    font-weight: 500;
+    display: inline-block; }
+  .seecomments-list-hypen {
+    margin-left: 1rem;
+    display: inline-block; }
+
+.sidebar-body {
+  position: relative; }
+
+.sidebar {
+  position: absolute;
+  right: 5rem;
+  top: 5rem; }
+  .sidebar-input {
+    background-color: rgba(var(--b3f, 250, 250, 250), 1);
+    border-style: none; }
+    .sidebar-input:focus {
+      outline: none; }
+  .sidebar-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit; }
+
+.search-result {
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 1.5rem; }
+
+a:-webkit-any-link {
   cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px; }
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd; }
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc; }
-
-/* Style the tab content */
-.tabcontent {
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none; }
+  text-decoration: none;
+  color: #000; }
 
 .row {
   max-width: 114rem;
@@ -350,19 +410,7 @@
     margin-right: 38%;
     height: 0.5px; }
 
-#followers-list {
-  list-style-type: none;
-  width: 30%;
-  margin-left: 34%;
-  margin-top: 4%; }
-
-#following-list {
-  list-style-type: none;
-  width: 30%;
-  margin-left: 34%;
-  margin-top: 4%; }
-
-#posts-list {
+.list-post-follower-following {
   list-style-type: none;
   width: 30%;
   margin-left: 34%;
