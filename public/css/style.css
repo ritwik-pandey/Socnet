@@ -240,6 +240,15 @@
     margin-left: 1rem;
     display: inline-block; }
 
+.viewPostTop {
+  color: #f55c47;
+  text-decoration: none; }
+
+.shared-div-large {
+  padding: 0;
+  border-style: groove;
+  border-radius: 0.5rem; }
+
 .sidebar-body {
   position: relative; }
 
@@ -261,15 +270,17 @@
     cursor: pointer;
     outline: inherit; }
 
+.sidebar-input {
+  font-size: 1rem; }
+
 .search-result {
   list-style-type: none;
-  text-decoration: none;
-  font-size: 1.5rem; }
-
-a:-webkit-any-link {
-  cursor: pointer;
-  text-decoration: none;
-  color: #000; }
+  font-size: 2rem;
+  margin-left: -21.8%;
+  text-align: left; }
+  .search-result a {
+    text-decoration: none;
+    color: #000; }
 
 .row {
   max-width: 114rem;
@@ -482,3 +493,23 @@ a:-webkit-any-link {
   display: block;
   margin-top: 8%;
   margin-left: 32.5%; }
+
+.share-icon {
+  margin-left: .5rem;
+  color: #00adb5; }
+  .share-icon-top {
+    margin-right: .5rem;
+    color: #00adb5; }
+
+.shared-div {
+  border-style: groove;
+  border-radius: 0.5rem; }
+  .shared-div-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem; }
+
+.shared-name {
+  text-decoration: none;
+  color: #f55c47;
+  margin-left: 1.5rem; }

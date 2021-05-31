@@ -1,11 +1,14 @@
-.search-result{
-    list-style-type:none; 
-    text-decoration: none;
-    font-size: 1.5rem;
+.sidebar-input{
+    font-size: 1rem;
 }
 
-a:-webkit-any-link {
-    cursor: pointer;
-    text-decoration: none;
-    color: $color-black;
+.search-result{
+    list-style-type:none;   
+    font-size: 2rem;
+    margin-left: -21.8%;
+    text-align: left;
+    a{
+        text-decoration: none;
+        color: $color-black;
+    }
 }

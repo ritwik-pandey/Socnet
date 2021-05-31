@@ -5,7 +5,8 @@ const userRouter = require('./routers/user')
 const passwordRouter = require('./routers/forgotpassword')
 const profileRouter = require('./routers/profile')
 const postsRouter = require('./routers/posts')
-const commentRouter = require('./routers/commentPost')
+const viewPostRouter = require('./routers/viewPost')
+const share = require('./routers/share')
 const search = require('./routers/search')
 const ejs = require("ejs");
 
@@ -15,8 +16,9 @@ app.use(express.static("public"));
 app.use(userRouter)
 app.use(passwordRouter)
 app.use(postsRouter)
-app.use(commentRouter)
+app.use(viewPostRouter)
 app.use(search)
+app.use(share)
 app.use(profileRouter)
 app.set('view engine', 'ejs');
 

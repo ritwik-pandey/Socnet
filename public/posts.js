@@ -31,16 +31,28 @@ function posts() {
                     class1 = "fas fa-thumbs-up";
                 }
 
-                //Insert the post
-
-                $("#posts-list").append(
-                    '<li class="list-link-item">' + obj[i].text + '</li> <button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj[i].likes +'</h4></button><button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4></button>' +
-                    '<button class="like-button" onclick="likeButton(this.id , 0)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
-                    '</button>' + 
-                    '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
-                    ' class="card-form-button comment-button" name="comment-button" onclick="comment(this.id)" >Comment</button>'
-                    
-                );
+                if(obj[i].shared != ""){
+                    $("#posts-list").append(
+                        '<h3><i class="fas fa-share share-icon-top"></i>' + username +' shared a post</h3>'  + 
+                        '<div class="shared-div"> <h4> <a class="shared-name" href="/' + obj[i].shared + '"> ' + obj[i].shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj[i].text.substring(0 , 20) + '...</li> </div>' +
+                        '<button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj[i].likes +'</h4></button><button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4></button>' +
+                        '<button class="like-button" onclick="likeButton(this.id , 0)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
+                        '</button>' + 
+                        '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
+                        ' class="card-form-button comment-button" name="comment-button" onclick="comment(this.id)" >Comment</button>'
+                        
+                    );
+                }else{
+                    $("#posts-list").append(
+                        '<li class="list-link-item">' + obj[i].text + '</li> <button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj[i].likes +'</h4></button><button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4></button>' +
+                        '<button class="see-Likes" id="' + i +'" onClick=sharePost(this.id)> <h4 class="comment-post"> share <i class="fas fa-share share-icon"></i></h4></button>'  +
+                        '<button class="like-button" onclick="likeButton(this.id , 0)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
+                        '</button>' + 
+                        '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
+                        ' class="card-form-button comment-button" name="comment-button" onclick="comment(this.id)" >Comment</button>'
+                        
+                    );
+                }
             }
 
         }

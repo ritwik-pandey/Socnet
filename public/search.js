@@ -1,3 +1,9 @@
+jQuery('#input-sidebar').on('keydown', function(e) {
+    if( e.which == 8 || e.which == 46 ){
+        $('.search-list').empty()
+    }
+});
+
 $('.sidebar-button').click(function() {
     $('.search-list').empty()
     let searchQuery = $('.sidebar-input').val()

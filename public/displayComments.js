@@ -22,14 +22,29 @@ function seeLikesAndComments(id) {
                 class1 = "fas fa-thumbs-up";
             }
 
-            $("#post-list-large").append(
-                '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
-                '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
-                '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +
-                '<button class="like-button" onclick="likeButton(this.id , 1)" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
-                '<input autocomplete="off" name="comment-large" class="comment-input-large" type="text" placeholder="Add a comment..">  <button id=' + obj.id +
-                ' class="card-form-button comment-button-large" name="comment-button-large" onclick="commentSinglePost(this.id)" >Comment</button>'
-            );
+            if(obj.details.shared != ""){
+                $("#post-list-large").append(
+                    '<i class="fas fa-share share-icon-top"></i>' + user +' shared a post' +
+                   '<h4> <a class="shared-name" href="/' + obj.details.shared + '"> ' + obj.details.shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj.details.text.substring(0 , 20) + '...</li>' +
+                    // '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
+                    '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
+                    '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +
+                    '<button class="like-button" onclick="likeButton(this.id , 1)" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
+                    '<input autocomplete="off" name="comment-large" class="comment-input-large" type="text" placeholder="Add a comment..">  <button id=' + obj.id +
+                    ' class="card-form-button comment-button-large" name="comment-button-large" onclick="commentSinglePost(this.id)" >Comment</button>'
+                );
+            }else{
+                $("#post-list-large").append(
+                    '<h3><a class="viewPostTop" href="/' + user + '">' + user + '</a></h3>' +
+                    '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
+                    '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
+                    '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +
+                    '<button class="like-button" onclick="likeButton(this.id , 1)" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
+                    '<input autocomplete="off" name="comment-large" class="comment-input-large" type="text" placeholder="Add a comment..">  <button id=' + obj.id +
+                    ' class="card-form-button comment-button-large" name="comment-button-large" onclick="commentSinglePost(this.id)" >Comment</button>'
+                );
+    
+            }
 
             //Make a cookie storing likes and comments. So we don't have to fetch database again
 
