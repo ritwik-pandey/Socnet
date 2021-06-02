@@ -1,13 +1,18 @@
 //When you hit see likes
 
-function seeLikesAndComments(id) {
+function seeLikesAndComments(id , username) {
+    let user;
+    if(username === undefined){
+        user = $('.username-input').attr('value')
+    }else{
+        user = username
+    }
     $("#post-list-large").empty()
 
     //Change the styles
     changeCss();
 
 
-    const user = $('.username-input').attr('value')
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -23,9 +28,11 @@ function seeLikesAndComments(id) {
             }
 
             if(obj.details.shared != ""){
+                
+                let link = "seesharepost('" + obj.details.shared  + "' , '" + obj.details.sharedId + "')"; 
                 $("#post-list-large").append(
                     '<i class="fas fa-share share-icon-top"></i>' + user +' shared a post' +
-                   '<h4> <a class="shared-name" href="/' + obj.details.shared + '"> ' + obj.details.shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj.details.text.substring(0 , 20) + '...</li>' +
+                   '<div onclick="' + link + '" class="SinglePostSharedDetails"><h4> <a class="shared-name" href="/' + obj.details.shared + '"> ' + obj.details.shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj.details.text.substring(0 , 20) + '...</li></div>' +
                     // '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +

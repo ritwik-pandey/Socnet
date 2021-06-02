@@ -1,4 +1,4 @@
-function sharePost(id){
+function sharePost(id) {
     const user = $('.username-input').attr('value')
 
     var xhttp = new XMLHttpRequest();
@@ -6,7 +6,21 @@ function sharePost(id){
     xhttp.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
-            console.log("Fine");
+            $("#" + id + "popup").addClass("show");
+            $("#" + id + "popup").html("Shared!");
+            setTimeout(
+                function () {
+                    $("#" + id + "popup").removeClass("show");
+                }, 3000);
+        } else {
+            if (this.responseText != '') {
+                $("#" + id + "popup").addClass("show");
+                $("#" + id + "popup").html("already shared");
+                setTimeout(
+                    function () {
+                        $("#" + id + "popup").removeClass("show");
+                    }, 3000)
+            }
         }
     };
 
@@ -15,4 +29,8 @@ function sharePost(id){
     xhttp.send(
         "id=" + id + "&username=" + user
     );
+}
+
+function seesharepost(username, id) {
+    seeLikesAndComments(id, username)
 }

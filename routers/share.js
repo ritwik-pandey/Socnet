@@ -20,9 +20,9 @@ router.post('/share' , (req , res) => {
             } else if (response.statusCode == 200) {
                 res.status(200).send()
             } else if (response.statusCode == 404) {
-                res.status(404).send();
+                res.status(404).send("ok");
             } else if (response.statusCode == 400) {
-                res.send("Fail");
+                res.status(400).send("ok");
             }else if(response.statusCode == 401){
                     res.redirect('/login')
             }else{
