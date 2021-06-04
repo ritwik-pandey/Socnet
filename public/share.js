@@ -1,5 +1,11 @@
-function sharePost(id) {
-    const user = $('.username-input').attr('value')
+function sharePost(id , username) {
+    let user;
+
+    if(username === undefined){
+        user = $('.username-input').attr('value')
+    }else{
+        user = username
+    }
 
     var xhttp = new XMLHttpRequest();
 
@@ -11,7 +17,12 @@ function sharePost(id) {
             setTimeout(
                 function () {
                     $("#" + id + "popup").removeClass("show");
-                }, 3000);
+            }, 3000);
+            if(window.location.href === 'http://localhost:4000/'){
+                window.location = "http://localhost:4000";
+            }else{
+                posts();
+            }
         } else {
             if (this.responseText != '') {
                 $("#" + id + "popup").addClass("show");
@@ -19,7 +30,7 @@ function sharePost(id) {
                 setTimeout(
                     function () {
                         $("#" + id + "popup").removeClass("show");
-                    }, 3000)
+                }, 3000)
             }
         }
     };

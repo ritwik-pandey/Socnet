@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<body class="home">
+    <%- include('partials/navbar') %>
+    <section class="home-page">
+        <div class="display-posts-home">
+            <% for(i in arr) { %>
+                <div class="singleposthome">
+                    <% if(arr[i].data.shared !=  ''){%>
+                        <h3><i class="fas fa-share share-icon-top"></i> <%= arr[i].user %> shared a post</h3>
+                        <div onClick="seesharepost('<%= arr[i].data.shared %>' , '<%=arr[i].data.sharedId%>')" class="shared-div"> <h4> 
+                        <a class="shared-name" href="/<%= arr[i].data.shared %>">  <%= arr[i].data.shared %> </a></h4> 
+                        <p class="shared-div-text"> <%= arr[i].data.text %> ...</p> </div>
+                        <button id='<%= i %>' class="see-Likes-home-page" onClick="seeLikesAndComments(this.id , '<%= arr[i].user %>')">
+                        <h4 class="like-post-home-page">Likes - <%= arr[i].data.likes %></h4></button>
+                        <button id=' <%= i %> ' class="see-Likes-home-page" onClick="seeLikesAndComments(this.id , '<%= arr[i].user %>')">
+                        <h4 class="comment-post-home-page">Comments - <%= arr[i].data.comments %></h4></button>
+                    <% } %>
+                    
+                    <% if(arr[i].data.shared === ''){ %>
+                        <h2 class="home-page-username"><a class="home-page-name-link" href="/<%=arr[i].user%>"><%=arr[i].user%></a> </h2>
+                        <p class="home-page-text"><%= arr[i].data.text %></p>
+                        <button id='<%= i %>' class="see-Likes-home-page" onClick="seeLikesAndComments(this.id , '<%= arr[i].user %>')">
+                        <h4 class="like-post-home-page">Likes - <%= arr[i].data.likes %></h4></button>
+                        <button id=' <%= i %> ' class="see-Likes-home-page" onClick="seeLikesAndComments(this.id , '<%= arr[i].user %>')">
+                        <h4 class="comment-post-home-page">Comments - <%= arr[i].data.comments %></h4></button>
+                        <button class="see-Likes" id="<%= i %>" onClick="sharePost(this.id , '<%= arr[i].user %>')"> 
+                        <h4 class="comment-post popup"> share <span class="popuptext" id="<%= i %>popup"></span> <i class="fas fa-share share-icon"></i></h4></button>
+                    <% } %>
+                    
+                    <button class="like-button-home-page" onclick='likeButton(this.id , 2, "<%= arr[i].user%>" )' id='<%=i%>'> 
+                    <% if(arr[i].isLiked === true){ %>
+                        <i class="icon-thumsup fas fa-thumbs-up fa-2x"></i>
+                    <% }else{ %>
+                        <i class="icon-thumsup far fa-thumbs-up fa-2x"></i>
+                    <% } %>
+                    </button> 
+                    <input autocomplete="off" name="comment" class="comment-input comment-input-home" type="text" placeholder="Add a comment..">  
+                    <button id=' <%= i %> ' class="card-form-button comment-button" name="comment-button" onclick='commentHome(this.id, "<%= arr[i].user %>")' >Comment</button>
+                    <hr class="horizontal-line-belowpost">
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <%- include('partials/sidebar') %>
+
+    <%- include('partials/displayComments') %>
+
+</body>
+
+<footer>
+    <script src="/posts.js"></script>
+    <script src="/displayComments.js"></script>
+    <script src="/search.js"></script>
+    <script src="/share.js"></script>
+    <script src="/home.js"></script>
+</footer>
+
+<%- include('partials/footer') %>

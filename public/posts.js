@@ -16,11 +16,14 @@ function posts() {
     const username = $('.username-input').attr('value');
     var xhttp = new XMLHttpRequest();
     $(".clicked-link").html('Posts');
+    
+
 
     xhttp.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
             let posts = this.responseText;
+            console.log(posts);
 
             let obj = JSON.parse(posts);
             let class1 = "";
@@ -77,7 +80,10 @@ $('.profile-posts').click(function () {
 
 
 function comment(id){
-    const user = $('.username-input').attr('value')
+    let user;
+    user = $('.username-input').attr('value')
+    
+    
     
     const comment = $('.comment-input').val();
     
@@ -100,7 +106,7 @@ function comment(id){
 
 //------------------------------------When you hit like--------------------------------------
 
-function likeButton(id , locationFromWhereItIsCalled) {  //If locationFromWhereItIsCalled 0 then from profile otherwise from opening large div
+function likeButton(id , locationFromWhereItIsCalled , username) {  //If locationFromWhereItIsCalled 0 then from profile otherwise from opening large div
 
     var xhttp = new XMLHttpRequest();
 
@@ -109,15 +115,23 @@ function likeButton(id , locationFromWhereItIsCalled) {  //If locationFromWhereI
         if (this.readyState == 4 && this.status == 200) {
             if(locationFromWhereItIsCalled === 0){
                 posts();
+            }else if(locationFromWhereItIsCalled === 2){
+                window.location = "http://localhost:4000";
             }else{
-                seeLikesAndComments(id);
+                seeLikesAndComments(id , username);
             }
             
         }
     };
     xhttp.open("POST", "/like", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    const user = $('.username-input').attr('value')
+    let user;
+    if(username === undefined){
+        user = $('.username-input').attr('value')
+    }else{
+        user = username
+    }
+    
 
     // alert(this.id);
 
@@ -199,4 +213,6 @@ $(".profile-following").click(function () {
     xhttp.send();
 })
 
-posts()
+if(window.location.href != 'http://localhost:4000/'){
+    posts()
+}

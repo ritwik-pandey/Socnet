@@ -1,6 +1,7 @@
 const express = require("express");
 require('dotenv').config()
 var nodemailer = require("nodemailer");
+const homeRouter = require('./routers/home')
 const userRouter = require('./routers/user')
 const passwordRouter = require('./routers/forgotpassword')
 const profileRouter = require('./routers/profile')
@@ -13,6 +14,7 @@ const ejs = require("ejs");
 const app = express();
 
 app.use(express.static("public"));
+app.use(homeRouter)
 app.use(userRouter)
 app.use(passwordRouter)
 app.use(postsRouter)

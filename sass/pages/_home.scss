@@ -1,0 +1,60 @@
+.home{
+    background-color: $color-grey;
+}
+
+.home-page{
+    margin-top: 10%;
+    margin-left: 40% ;
+    display: inline-block;
+
+    &-name-link{
+        color: $color-red;
+        text-decoration: none;
+    }
+
+    &-text{
+        font-size: 1.5rem;
+    }
+}
+
+.like-post-home-page{
+    margin-top: 1.5rem;
+    display: inline-block;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.comment{
+    &-post-home-page{
+        display: inline-block;
+        margin-left: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+.see-Likes-home-page{ 
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit; 
+}
+
+.like-button-home-page{
+    background-color: $color-grey;
+    color: $color-blue;
+    border: none;
+    margin-top: 1rem;
+    font-size: .8rem;
+    display: block;
+}
+
+.singleposthome{
+    padding-top: 2rem;
+}
+
+.horizontal-line-belowpost{
+    margin-top: 1rem;
+    border-top: 0.2px solid $color-blue;
+}

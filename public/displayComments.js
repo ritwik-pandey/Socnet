@@ -2,6 +2,7 @@
 
 function seeLikesAndComments(id , username) {
     let user;
+    id = id.split(" ").join("")
     if(username === undefined){
         user = $('.username-input').attr('value')
     }else{
@@ -27,16 +28,17 @@ function seeLikesAndComments(id , username) {
                 class1 = "fas fa-thumbs-up";
             }
 
+            let userName = "'" + user + "'"
+
             if(obj.details.shared != ""){
                 
                 let link = "seesharepost('" + obj.details.shared  + "' , '" + obj.details.sharedId + "')"; 
                 $("#post-list-large").append(
                     '<i class="fas fa-share share-icon-top"></i>' + user +' shared a post' +
                    '<div onclick="' + link + '" class="SinglePostSharedDetails"><h4> <a class="shared-name" href="/' + obj.details.shared + '"> ' + obj.details.shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj.details.text.substring(0 , 20) + '...</li></div>' +
-                    // '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +
-                    '<button class="like-button" onclick="likeButton(this.id , 1)" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
+                    '<button class="like-button" onclick="likeButton(this.id , 1 , ' + userName + ')" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
                     '<input autocomplete="off" name="comment-large" class="comment-input-large" type="text" placeholder="Add a comment..">  <button id=' + obj.id +
                     ' class="card-form-button comment-button-large" name="comment-button-large" onclick="commentSinglePost(this.id)" >Comment</button>'
                 );
@@ -46,7 +48,7 @@ function seeLikesAndComments(id , username) {
                     '<li class="list-link-item"><h3 class="title-post-large">' + obj.details.text + '</h3></li>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj.details.likes + '</h4>' +
                     '<button id=' + obj.id + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj.details.comments + '</h4></button>' +
-                    '<button class="like-button" onclick="likeButton(this.id , 1)" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
+                    '<button class="like-button" onclick="likeButton(this.id , 1, ' + userName + ')" id=' + obj.id + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i></button>' +
                     '<input autocomplete="off" name="comment-large" class="comment-input-large" type="text" placeholder="Add a comment..">  <button id=' + obj.id +
                     ' class="card-form-button comment-button-large" name="comment-button-large" onclick="commentSinglePost(this.id)" >Comment</button>'
                 );
@@ -172,7 +174,12 @@ $('.close').click(function () {
     xhttp.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
-            posts();
+            if(window.location.href === 'http://localhost:4000/'){
+                window.location = "http://localhost:4000";
+            }else{
+                posts();
+            }
+            
         }
     };
 
