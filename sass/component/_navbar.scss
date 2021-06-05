@@ -1,5 +1,5 @@
 .navbar{
-    position: absolute;
+    position: fixed;
     margin-top: 8%;
     margin-left: 5%;
 }
@@ -8,7 +8,6 @@
     list-style-type: none;
     
     width: 200px;
-    position: relative;
     &-item {
         margin-top: 2rem; 
         background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);;
@@ -27,5 +26,11 @@
     text-decoration: none;
     color: black;
     font-size: 1.5rem;
+}
+
+.icon-navbar{
+    color: $color-blue;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
 }
   

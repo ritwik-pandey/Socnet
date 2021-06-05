@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<body class="changeusername">
+    <%- include('partials/navbar') %>
+
+    <div class="changeusernamediv">
+        <h1>Enter your new name!</h1>
+        <%= msg %>
+
+    <form action="/changeusernamefinal" method="post">
+        <input name="changeusernameinput" class="changeusername-input" type="text" placeholder="Enter new username">
+        <button class="card-form-button button-changeusername" type="submit">change</button>
+    </form>
+    </div>
+
+    <%- include('partials/sidebar') %>
+</body>
+
+<%- include('partials/displayComments') %>

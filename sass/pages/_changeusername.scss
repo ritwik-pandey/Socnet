@@ -1,0 +1,24 @@
+.changeusername{
+    background-color: $color-grey;
+    &div{
+        display: inline-block;
+        width: 30%;
+        margin-top: 15%;
+        margin-left: 40%;
+    }
+}
+
+.changeusername-input{
+    width: 80%;
+    background-color: $color-grey;
+    margin-top: 1.5rem;
+    border-style: none;
+      &:focus{
+        outline: none;
+    }
+}
+
+.button-changeusername{
+    width: 25%;
+    margin-left: 0;
+}

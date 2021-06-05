@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+    <body class="deleteProfile">
+        <%- include('partials/navbar') %>
+            <div class="deleteprofilediv">
+                <h1 class="deleteProfiletitle">Are you sure you want <br> to delete this profile</h1>
+                </p>
+                <form action="/deleteProfileFinal" method="post">
+                    <input name="inputdelete" class="input-text-username" type="password" placeholder="Type your password to continue">
+                    <button class="card-form-button button-delete-submit" type="submit">delete!</button>
+                </form>
+
+            </div>
+
+            <%- include('partials/sidebar') %>
+    </body>
+
+    <%- include('partials/footer') %>

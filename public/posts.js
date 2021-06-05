@@ -23,15 +23,22 @@ function posts() {
 
         if (this.readyState == 4 && this.status == 200) {
             let posts = this.responseText;
-            console.log(posts);
 
             let obj = JSON.parse(posts);
+            
             let class1 = "";
+            let ismyprofile = "";
             for (i in obj) {
                 if (obj[i].isLiked === false) {
                     class1 = "far fa-thumbs-up";
                 } else {
                     class1 = "fas fa-thumbs-up";
+                }
+
+                
+                if(obj[i].ismyprofile === "yes"){
+                    ismyprofile = "<button onClick='deletePost(this.id)' class='deletepostbutton' id='" + i + "'><i class='fas fa-trash'></i></button>"
+                    
                 }
 
                 if(obj[i].shared != ""){
@@ -40,6 +47,7 @@ function posts() {
                         '<h3><i class="fas fa-share share-icon-top"></i>' + username +' shared a post</h3>'  + 
                         '<div onClick="' + link + '" class="shared-div"> <h4> <a class="shared-name" href="/' + obj[i].shared + '"> ' + obj[i].shared + ' </a></h4> <li class="list-link-item shared-div-text">' + obj[i].text.substring(0 , 20) + '...</li> </div>' +
                         '<button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj[i].likes +'</h4></button><button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4></button>' +
+                        ismyprofile + 
                         '<button class="like-button" onclick="likeButton(this.id , 0)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
                         '</button>' + 
                         '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
@@ -50,6 +58,7 @@ function posts() {
                     $("#posts-list").append(
                         '<li class="list-link-item">' + obj[i].text + '</li> <button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="like-post">Likes - ' + obj[i].likes +'</h4></button><button id=' + i + ' class="see-Likes" onClick="seeLikesAndComments(this.id)"><h4 class="comment-post">Comments - ' + obj[i].comments + '</h4></button>' +
                         '<button class="see-Likes" id="' + i +'" onClick=sharePost(this.id)> <h4 class="comment-post popup"> share <span class="popuptext" id="' + i + 'popup"></span> <i class="fas fa-share share-icon"></i></h4></button> '  +
+                        ismyprofile + 
                         '<button class="like-button" onclick="likeButton(this.id , 0)" id=' + i + '> <i class="icon-thumsup ' + class1 + ' fa-2x"></i>' +
                         '</button>' + 
                         '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 

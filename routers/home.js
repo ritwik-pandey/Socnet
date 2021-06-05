@@ -11,29 +11,29 @@ router.use(bodyParser.urlencoded({
 
 router.use(cookieParser());
 
-router.get('/' , (req , res) => {
+router.get('/', (req, res) => {
     const url = "http://localhost:3000/"
-        request.post(
-            url,
-            {
-                json: {
-                    cookie: req.cookies.jwt
-                },
+    request.post(
+        url,
+        {
+            json: {
+                cookie: req.cookies.jwt
             },
-            (error, response, body) => {
-                if (error) {
-                    console.log(error)
-                } else if (response.statusCode == 200) {
-                    res.render('home' , {arr: response.body})
-                } else if (response.statusCode == 404) {
-                    res.render('error');
-                }else if(response.statusCode == 401){
-                    res.redirect('/login');
-                }else {
-                    res.render('error');
-                }
+        },
+        (error, response, body) => {
+            if (error) {
+                console.log(error)
+            } else if (response.statusCode == 200) {
+                res.render('home', { arr: response.body })
+            } else if (response.statusCode == 404) {
+                res.render('error');
+            } else if (response.statusCode == 401) {
+                res.redirect('/login');
+            } else {
+                res.render('error');
             }
-        )
+        }
+    )
 })
 
 

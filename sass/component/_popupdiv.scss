@@ -33,11 +33,11 @@
 
 .comment-input-large{
     background-color: $color-grey;
-        margin-top: 1.5rem;
-        border-style: none;
-        &:focus{
-            outline: none;
-        }
+    margin-top: 1.5rem;
+    border-style: none;
+      &:focus{
+        outline: none;
+    }
 }
 
 .close{

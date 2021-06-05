@@ -1,0 +1,27 @@
+.settings{
+    background-color: $color-grey;
+}
+
+.list-settings-div{
+    display: inline-block;
+    margin-top: 12%;
+    margin-left: 40%;
+}
+
+.settings-list{
+    list-style-type: none;
+    &-item{
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &-icon{
+        margin-left: .5rem;
+        color: $color-blue;
+    }
+
+    &-link{
+        text-decoration: none;
+        color: $color-black;
+    }
+}

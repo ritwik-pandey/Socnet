@@ -2,7 +2,6 @@ const express = require('express');
 const router = new express.Router();
 const bodyParser = require("body-parser");
 const request = require('request');
-var nodemailer = require("nodemailer");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 var {randString , sendMail} = require("../functions/sendEmail");

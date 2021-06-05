@@ -116,14 +116,13 @@
   text-align: center; }
 
 .navbar {
-  position: absolute;
+  position: fixed;
   margin-top: 8%;
   margin-left: 5%; }
 
 .navbar-list {
   list-style-type: none;
-  width: 200px;
-  position: relative; }
+  width: 200px; }
   .navbar-list-item {
     margin-top: 2rem;
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
@@ -138,6 +137,11 @@
   text-decoration: none;
   color: black;
   font-size: 1.5rem; }
+
+.icon-navbar {
+  color: #00adb5;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem; }
 
 .overlay {
   visibility: hidden;
@@ -312,7 +316,7 @@
   position: relative; }
 
 .sidebar {
-  position: absolute;
+  position: fixed;
   right: 5rem;
   top: 5rem; }
   .sidebar-input {
@@ -535,6 +539,17 @@
   font: inherit;
   outline: inherit; }
 
+.deletepostbutton {
+  margin-left: 1rem;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  color: #f55c47; }
+
 .compose-body {
   background-color: rgba(var(--b3f, 250, 250, 250), 1); }
 
@@ -578,6 +593,7 @@
   background-color: rgba(var(--b3f, 250, 250, 250), 1); }
 
 .home-page {
+  width: 25%;
   margin-top: 10%;
   margin-left: 40%;
   display: inline-block; }
@@ -620,3 +636,70 @@
 .horizontal-line-belowpost {
   margin-top: 1rem;
   border-top: 0.2px solid #00adb5; }
+
+.settings {
+  background-color: rgba(var(--b3f, 250, 250, 250), 1); }
+
+.list-settings-div {
+  display: inline-block;
+  margin-top: 12%;
+  margin-left: 40%; }
+
+.settings-list {
+  list-style-type: none; }
+  .settings-list-item {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem; }
+  .settings-list-icon {
+    margin-left: .5rem;
+    color: #00adb5; }
+  .settings-list-link {
+    text-decoration: none;
+    color: #000; }
+
+.deleteProfile {
+  background-color: rgba(var(--b3f, 250, 250, 250), 1); }
+
+.deleteprofilediv {
+  display: inline-block;
+  margin-top: 10%;
+  margin-left: 40%; }
+
+.deleteProfiletitle {
+  color: #f55c47; }
+
+.input-text-username {
+  width: 80%;
+  background-color: rgba(var(--b3f, 250, 250, 250), 1);
+  margin-top: 1.5rem;
+  border-style: none; }
+  .input-text-username:focus {
+    outline: none; }
+
+.button-delete-submit {
+  margin-top: 3rem;
+  margin-left: 0;
+  width: 40%;
+  background-color: #f54748; }
+  .button-delete-submit:hover {
+    background-color: #f54748; }
+
+.changeusername {
+  background-color: rgba(var(--b3f, 250, 250, 250), 1); }
+  .changeusernamediv {
+    display: inline-block;
+    width: 30%;
+    margin-top: 15%;
+    margin-left: 40%; }
+
+.changeusername-input {
+  width: 80%;
+  background-color: rgba(var(--b3f, 250, 250, 250), 1);
+  margin-top: 1.5rem;
+  border-style: none; }
+  .changeusername-input:focus {
+    outline: none; }
+
+.button-changeusername {
+  width: 25%;
+  margin-left: 0; }

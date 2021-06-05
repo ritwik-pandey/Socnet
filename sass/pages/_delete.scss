@@ -1,0 +1,33 @@
+.deleteProfile{
+    background-color: $color-grey;
+}
+
+.deleteprofilediv{
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.deleteProfiletitle{
+    color: $color-red;
+}
+
+.input-text-username{
+    width: 80%;
+    background-color: $color-grey;
+    margin-top: 1.5rem;
+    border-style: none;
+      &:focus{
+        outline: none;
+    }
+}
+
+.button-delete-submit{
+    margin-top: 3rem;
+    margin-left: 0;
+    width: 40%;
+    background-color: $color-red-dark;
+    &:hover{
+        background-color: $color-red-dark;
+    }
+}
