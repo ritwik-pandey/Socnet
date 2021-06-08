@@ -222,6 +222,6 @@ $(".profile-following").click(function () {
     xhttp.send();
 })
 
-if(window.location.href != 'http://localhost:4000/'){
+if(window.location.href != 'http://localhost:4000/' && window.location.href != 'http://localhost:4000/notifications'){
     posts()
 }

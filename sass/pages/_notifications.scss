@@ -1,0 +1,22 @@
+.notifications{
+    background-color: $color-grey;
+}
+
+.all-notification{
+    font-size: 1.5rem;
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: 40%;
+}
+
+.notification-link{
+    display: inline-block;
+    text-decoration: none;
+    color: $color-blue;
+}
+
+.notification-paragraph{
+    cursor: pointer;
+    margin-left: .25rem;
+    display: inline-block;
+}

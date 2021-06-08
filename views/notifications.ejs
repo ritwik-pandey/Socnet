@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<body class="notifications">
+
+    <%- include('partials/navbar') %>   
+
+    <div class="all-notification">
+        <% for(let i = arr.length - 1 ; i >= 0 ; --i){ %>
+            <div class="each-notification">
+                <%- arr[i]%>
+            </div>
+            
+        <% } %>
+    </div>
+
+
+    <%- include('partials/sidebar') %>
+
+    <%- include('partials/displayComments') %>
+</body>
+
+<footer>
+    <script src="/posts.js"></script>
+    <script src="/notifications.js"></script>
+    <script src="/displayComments.js"></script>
+</footer>
+
+
+<%- include('partials/footer') %>
