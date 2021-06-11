@@ -1,22 +1,28 @@
 .log-in {
-    padding-top: 2rem;
-    width: 78%;
-
+    width: 20%;
+    margin-left: 55%;
+    margin-top: -1.2rem;
+    font-family: 'Signika Negative', sans-serif;
+    display: inline-block;
+    
     &-button {
         text-decoration: none;
         font-weight: bold;
-        color: #0095f6;
+        color: #194350;
     }
 }
 
 .forgotpassword {
-    width: 80%;
+    margin-left: 21%;
+    width: 30%;
     margin-top: 2rem;
+    display: inline-block;
     text-align: center;
+    font-family: 'Signika Negative', sans-serif;
     &-link {
         text-decoration: none;
         font-weight: bold;
-        color: $color-purple;
+        color: #194350;
     }
 }
 

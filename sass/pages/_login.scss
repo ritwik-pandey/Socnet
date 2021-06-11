@@ -1,5 +1,5 @@
 .body-login{
-    background-color: $color-grey;
+    background-color: $color-white;
 }
 
 .heading-secondary-login {
@@ -18,8 +18,9 @@
 }
 
 .msglogin {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    color: #293b5f;
+    font-family: 'Fira Sans', sans-serif;
+    margin-bottom: 11%;
     text-align: center;
 }
 
@@ -35,4 +36,14 @@
         transform: translateY(-0.25rem);
         text-shadow: 0.5rem 1rem 2rem rgba($color-black, 0.35);
     }
+}
+.card-login{
+    border-radius: 0.5rem;
+    padding-top: 10rem;
+    margin-left: 8.5%;
+    padding: 7% 20rem;
+    border-style: solid;
+    background-color:   rgba(137, 196, 244, 0.25);
+    text-shadow: black;
+    box-shadow: 1px 1px 2px 3px #3b3b3b;
 }

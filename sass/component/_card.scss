@@ -1,7 +1,6 @@
 .card {
-    margin-top: 20%;
-    background-color: $color-white;
-    width: 65%; 
+
+    width: 40%; 
     border-style: groove; 
     border-radius: 1rem;
     padding: 3rem;
@@ -12,40 +11,40 @@
         transition: all .5s;
 
         &-input{
+            margin-left: 21%;
+            background-image: linear-gradient(to right, #FEAC5E,#C779D0,#4BC0C8);
+            -webkit-background-clip: text;            
             font-size: 1rem;
             text-align: left;
             padding: 2rem 2rem;
             border-radius: 2px;
             border: none;
             border-bottom: 3px solid transparent;
-            width: 60%;
+            width: 50%;
             display: block;
+            border-bottom: 1px transparent solid;
 
             &:focus {
                 outline: none;
+                border-bottom: 1px #000000 solid;
             }
+
         }
 
-        &-input-2{
-            font-size: 1rem;
-            text-align: left;
-            padding: 2rem 2rem;
-            border-radius: 2px;
-            border: none;
-            border-bottom: 3px solid transparent;
-            display: block;
-            width: 60%;
-    
-            &:focus {
-                    outline: none;
-            }
+        &-input::placeholder {
+            color: #343a40;
+            font-family: slabo;
+            font-weight: bold;
         }
+
+        
 
         &-button {
+            font-family: 'Fira Sans', sans-serif;
             border-radius: .5rem;
-            width: 90%;
+            width: 50%;
             margin-top: 2rem;
-            margin-left: 1rem;
+            margin-left: 24%;
             margin-bottom: 1rem;
             padding-top: .4rem;
             padding-bottom: .4rem;
@@ -55,6 +54,7 @@
             font-weight: 900;
 
             &:hover{
+
                 background-color: #77acf1;
                 transform: translateY(-3px);
                 box-shadow: 0 .5rem 1rem rgba($color-black,.2);

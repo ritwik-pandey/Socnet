@@ -6,9 +6,7 @@
   font-weight: 400; }
 
 .card {
-  margin-top: 20%;
-  background-color: rgba(var(--d87, 255, 255, 255), 1);
-  width: 65%;
+  width: 40%;
   border-style: groove;
   border-radius: 1rem;
   padding: 3rem; }
@@ -16,32 +14,31 @@
     position: relative;
     transition: all .5s; }
     .card-form-input {
+      margin-left: 21%;
+      background-image: linear-gradient(to right, #FEAC5E, #C779D0, #4BC0C8);
+      -webkit-background-clip: text;
       font-size: 1rem;
       text-align: left;
       padding: 2rem 2rem;
       border-radius: 2px;
       border: none;
       border-bottom: 3px solid transparent;
-      width: 60%;
-      display: block; }
-      .card-form-input:focus {
-        outline: none; }
-    .card-form-input-2 {
-      font-size: 1rem;
-      text-align: left;
-      padding: 2rem 2rem;
-      border-radius: 2px;
-      border: none;
-      border-bottom: 3px solid transparent;
+      width: 50%;
       display: block;
-      width: 60%; }
-      .card-form-input-2:focus {
-        outline: none; }
+      border-bottom: 1px transparent solid; }
+      .card-form-input:focus {
+        outline: none;
+        border-bottom: 1px #000000 solid; }
+    .card-form-input::placeholder {
+      color: #343a40;
+      font-family: slabo;
+      font-weight: bold; }
     .card-form-button {
+      font-family: 'Fira Sans', sans-serif;
       border-radius: .5rem;
-      width: 90%;
+      width: 50%;
       margin-top: 2rem;
-      margin-left: 1rem;
+      margin-left: 24%;
       margin-bottom: 1rem;
       padding-top: .4rem;
       padding-bottom: .4rem;
@@ -58,21 +55,27 @@
         box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2); }
 
 .log-in {
-  padding-top: 2rem;
-  width: 78%; }
+  width: 20%;
+  margin-left: 55%;
+  margin-top: -1.2rem;
+  font-family: 'Signika Negative', sans-serif;
+  display: inline-block; }
   .log-in-button {
     text-decoration: none;
     font-weight: bold;
-    color: #0095f6; }
+    color: #194350; }
 
 .forgotpassword {
-  width: 80%;
+  margin-left: 21%;
+  width: 30%;
   margin-top: 2rem;
-  text-align: center; }
+  display: inline-block;
+  text-align: center;
+  font-family: 'Signika Negative', sans-serif; }
   .forgotpassword-link {
     text-decoration: none;
     font-weight: bold;
-    color: #511281; }
+    color: #194350; }
 
 .h3-heading-login {
   margin: 2rem 0;
@@ -372,7 +375,7 @@
     width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2 *  6rem); }
 
 .body-login {
-  background-color: rgba(var(--b3f, 250, 250, 250), 1); }
+  background-color: rgba(var(--d87, 255, 255, 255), 1); }
 
 .heading-secondary-login {
   margin-top: 40%;
@@ -388,8 +391,9 @@
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.35); }
 
 .msglogin {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  color: #293b5f;
+  font-family: 'Fira Sans', sans-serif;
+  margin-bottom: 11%;
   text-align: center; }
 
 .heading-tertiary-login {
@@ -403,6 +407,16 @@
   .heading-tertiary-login:hover {
     transform: translateY(-0.25rem);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.35); }
+
+.card-login {
+  border-radius: 0.5rem;
+  padding-top: 10rem;
+  margin-left: 8.5%;
+  padding: 7% 20rem;
+  border-style: solid;
+  background-color: rgba(137, 196, 244, 0.25);
+  text-shadow: black;
+  box-shadow: 1px 1px 2px 3px #3b3b3b; }
 
 .error-body {
   background-color: rgba(var(--b3f, 250, 250, 250), 1); }
