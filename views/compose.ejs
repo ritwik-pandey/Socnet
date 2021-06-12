@@ -1,6 +1,7 @@
 <%- include('partials/header') %>
 
     <body class="compose-body">
+        <%- include('partials/navbar') %>
         <div class="compose">
             <h2 class="compose-heading heading-secondary-login">Welcome <%= name %> ! Share your thoughts with the world</h2>
             <form class="form-compose" action="/compose" method="POST">
@@ -9,6 +10,7 @@
                 </div>
                 <button class="card-form-button compose-button" type="submit" name="button">Post</button>
             </form>
+            <%- include('partials/sidebar') %>
         </div>
     </body>
 

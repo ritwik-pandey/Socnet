@@ -1,12 +1,8 @@
 .body-signup{
-    width: 35%;
-    text-align: center;
-    margin-left: 30%;
+    background-color: $color-grey;
 }
-
-.card-signup {
-    margin-top: 15%;
-    background-color: $color-white;
-    border-style: groove; 
-    border-radius: 1rem;
+.signup{
+    font-family: 'Signika Negative', sans-serif;
+    display: inline-block;
+    margin-left: 32%;
 }

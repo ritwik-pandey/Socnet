@@ -27,17 +27,15 @@ router.post('/signup', (req, res) => {
         email = req.body.email;
 
         const hash = bcrypt.hashSync(password, saltRounds);
-        const emailhash = bcrypt.hashSync(email, saltRounds);
+        const uniqueString = randString()
 
 
         const url = "http://localhost:3000/users";
-        const uniqueString = randString()
-        sendMail(email, uniqueString, "verify")
         request.post(
             url,
             {
                 json: {
-                    email: emailhash,
+                    email: email,
                     username: username,
                     password: hash,
                     confirmed: false,
@@ -50,6 +48,7 @@ router.post('/signup', (req, res) => {
                     res.render("signup", { msg: "Error! Please try again" });
                 } else {
                     if (response.statusCode == 200) {
+                        sendMail(email, uniqueString, "verify")
                         res.render("signup", { msg: "Please verfiy your mail. Link was sent" });
                     } else {
                         res.render("signup", { msg: body });

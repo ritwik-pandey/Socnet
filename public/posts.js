@@ -52,6 +52,7 @@ function posts() {
                         '</button>' + 
                         '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
                         ' class="card-form-button comment-button" name="comment-button" onclick="comment(this.id)" >Comment</button>'
+                        + '<hr class="horizontal-line-belowpost">'
                         
                     );
                 }else{
@@ -63,7 +64,7 @@ function posts() {
                         '</button>' + 
                         '<input autocomplete="off" name="comment" class="comment-input" type="text" placeholder="Add a comment..">  <button id=' + i + 
                         ' class="card-form-button comment-button" name="comment-button" onclick="comment(this.id)" >Comment</button>'
-                        
+                        + '<hr class="horizontal-line-belowpost">'
                     );
                 }
             }

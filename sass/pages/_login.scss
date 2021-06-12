@@ -1,5 +1,5 @@
 .body-login{
-    background-color: $color-white;
+    background-color: $color-grey;
 }
 
 .heading-secondary-login {
@@ -39,11 +39,9 @@
 }
 .card-login{
     border-radius: 0.5rem;
-    padding-top: 10rem;
-    margin-left: 8.5%;
-    padding: 7% 20rem;
-    border-style: solid;
+    border-style: none;
+    margin: 0 auto;
+    padding: 7% 1%;
     background-color:   rgba(137, 196, 244, 0.25);
     text-shadow: black;
-    box-shadow: 1px 1px 2px 3px #3b3b3b;
 }

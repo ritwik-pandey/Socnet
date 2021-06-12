@@ -1,25 +1,30 @@
 <%- include('partials/header') %>
 
-<body class="body-signup">
+    <body class="body-signup">
+        <h1 class="heading-primary heading-primary-login">Socnet</h1>
+        <div class="row">
+            <div class="login-div-card">
+                <div class="card-signup card-login card">
 
-    <div class="row">
-        <div class="card-signup">
-            <h1 class="heading-primary">Socnet</h1>
-            <h4><%= msg %></h4>
-            <form action="/signup" class="card-form" method="POST">
-                <input name="username" class="card-form-input-2" type="text" placeholder="username" autocomplete="off" required="true">
-                <input name="email" class="card-form-input" type="email" placeholder="email" autocomplete="off" required="true">
-                <input name="password" class="card-form-input-2" type="password" placeholder="password" autocomplete="off" required="true">
-                <button type="submit" class="card-form-button">Sign up</button>
-            </form>
+                    <h4 class="msglogin">
+                        <%= msg %>
+                    </h4>
+                    <form action="/signup" class="card-form" method="POST">
+                        <input name="username" class="card-form-input" type="text" placeholder="username"
+                            autocomplete="off" required="true">
+                        <input name="email" class="card-form-input" type="email" placeholder="email" autocomplete="off"
+                            required="true">
+                        <input name="password" class="card-form-input" type="password" placeholder="password"
+                            autocomplete="off" required="true">
+                        <button type="submit" class="card-form-button">Sign up</button>
+                    </form>
+                    <div class="signup">
+                        <a href="/login" class="log-in-button">Log in</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="signup">
-            <h3 class="h3-heading-login"><span>or</span></h3>
-            <h4 class="h4-heading-login">Already have an account?</h4>
-            <a href="/login" class="log-in-button">Log in</a>
-        </div>
-    </div>
-    
-</body>
 
-<%- include('partials/footer') %>
+    </body>
+
+    <%- include('partials/footer') %>

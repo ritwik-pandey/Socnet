@@ -4,4 +4,9 @@
     text-align: center;
     font-family: Lobster;
     font-weight: 400;
+    &-login{
+        background-image: linear-gradient(to right, #F58529,#FEDA77,#DD2A7B , #8134AF, #515BD4);
+        -webkit-background-clip: text;  
+        color: transparent;  
+    }
 }
